@@ -16,10 +16,19 @@
       '(add-hook 'flycheck-mode-hook #'flycheck-irony-setup)))
   (when (maybe-require-package 'irony-eldoc)
     (add-hook 'irony-mode-hook #'irony-eldoc)))
+(when (maybe-require-package 'google-c-style)
+  (add-hook 'c++-mode-hook 'google-set-c-style)
+  (add-hook 'c++-mode-hook 'google-make-newline-indent))
 
 ;; Python
-(when (maybe-require-package 'elpy)
-  (elpy-enable))
+(defun workon (virtualenv)
+  "Workon VIRTUALENV."
+  (interactive
+   (list (read-directory-name "workon: " "~/.virtualenvs/")))
+  (pythonic-activate virtualenv))
+
+;; Racket
+(maybe-require-package 'racket-mode)
 
 ;; Emms
 (when (maybe-require-package 'emms)
@@ -31,7 +40,6 @@
 (require 'ox-latex)
 (add-to-list 'org-latex-packages-alist '("" "minted"))
 (setq org-latex-listings 'minted)
-
 (setq org-latex-pdf-process
       '("xelatex -shell-escape -interaction nonstopmode -output-directory %o %f"
         "xelatex -shell-escape -interaction nonstopmode -output-directory %o %f"
