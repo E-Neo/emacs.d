@@ -30,13 +30,13 @@
 ;; Racket
 (maybe-require-package 'racket-mode)
 
-;; Emms
+;; EMMS
 (when (maybe-require-package 'emms)
   (require 'emms-setup)
   (emms-all)
   (emms-default-players))
 
-;; Org-mode
+;; Org mode
 (require 'ox-latex)
 (add-to-list 'org-latex-packages-alist '("" "minted"))
 (setq org-latex-listings 'minted)

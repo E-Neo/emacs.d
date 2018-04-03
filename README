@@ -3,9 +3,12 @@ My Emacs config
 
 Features
 --------
-  - irony-mode for C, C++ and Objective-C development
-  - elpy for Python development
-  - emms for a better life (You can listen to Mozart while coding)
+  This configuration adds some customization for the following:
+  - C/C++
+  - Python
+  - Racket
+  - EMMS
+  - Org mode
 
 Installation
 ------------
