@@ -41,9 +41,8 @@
 (add-to-list 'org-latex-packages-alist '("" "minted"))
 (setq org-latex-listings 'minted)
 (setq org-latex-pdf-process
-      '("xelatex -shell-escape -interaction nonstopmode -output-directory %o %f"
-        "xelatex -shell-escape -interaction nonstopmode -output-directory %o %f"
-        "xelatex -shell-escape -interaction nonstopmode -output-directory %o %f"))
+      '("latexmk -pdflatex='xelatex -shell-escape -interaction nonstopmode' -pdf -f %f"
+        "latexmk -bibtex -c"))
 
 (provide 'init-local)
 ;;; init-local.el ends here
