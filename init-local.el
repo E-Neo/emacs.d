@@ -27,6 +27,23 @@
    (list (read-directory-name "workon: " "~/.virtualenvs/")))
   (pythonic-activate virtualenv))
 
+;; OCaml
+(load "/home/e-neo/.opam/4.06.1/share/emacs/site-lisp/tuareg-site-file")
+(let ((opam-share (ignore-errors (car (process-lines "opam" "config" "var" "share")))))
+  (when (and opam-share (file-directory-p opam-share))
+    ;; Register Merlin
+    (add-to-list 'load-path (expand-file-name "emacs/site-lisp" opam-share))
+    (autoload 'merlin-mode "merlin" nil t nil)
+    ;; Automatically start it in OCaml buffers
+    (add-hook 'tuareg-mode-hook 'merlin-mode t)
+    (add-hook 'caml-mode-hook 'merlin-mode t)
+    ;; Use opam switch to lookup ocamlmerlin binary
+    (setq merlin-command 'opam)
+    ;; Automatically load utop.el
+    (autoload 'utop "utop" "Toplevel for OCaml" t)
+    ;; Use the opam installed utop
+    (setq utop-command "opam config exec -- utop -emacs")))
+
 ;; Racket
 (maybe-require-package 'racket-mode)
 
@@ -41,8 +58,7 @@
 (add-to-list 'org-latex-packages-alist '("" "minted"))
 (setq org-latex-listings 'minted)
 (setq org-latex-pdf-process
-      '("latexmk -pdflatex='xelatex -shell-escape -interaction nonstopmode' -pdf -f %f"
-        "latexmk -bibtex -c"))
+      '("latexmk -pdflatex='xelatex -shell-escape -interaction nonstopmode' -pdf -f %f && latexmk -bibtex -c"))
 
 (provide 'init-local)
 ;;; init-local.el ends here
