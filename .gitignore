@@ -1,6 +1,9 @@
 anaconda-mode/
 auto-save-list/
 elpa/
-custom.el
 .emacs.desktop
 .emacs.desktop.lock
+amx-items
+custom.el
+history
+recentf

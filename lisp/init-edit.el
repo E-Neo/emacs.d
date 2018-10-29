@@ -16,6 +16,7 @@
 
 ;;; Session settings.
 (desktop-save-mode 1)
+(savehist-mode 1)
 
 
 ;;; Set font size
@@ -36,7 +37,7 @@
                 compilation-mode-hook
                 twittering-mode-hook
                 minibuffer-setup-hook))
-(add-hook hook (lambda () (setq show-trailing-whitespace nil))))
+  (add-hook hook (lambda () (setq show-trailing-whitespace nil))))
 
 
 ;;; Clean up whitespace.
@@ -61,8 +62,17 @@
 
 ;;; Minibuffer completion.
 (use-package ivy
+  :init
+  (use-package amx)
   :config
-  (ivy-mode 1))
+  (ivy-mode 1)
+  (setq ivy-use-virtual-buffers t)
+  (setq ivy-count-format "(%d/%d) ")
+  (use-package counsel
+    :config
+    (global-set-key (kbd "C-s") 'swiper)
+    (global-set-key (kbd "M-x") 'counsel-M-x)
+    (global-set-key (kbd "C-x C-f") 'counsel-find-file)))
 
 
 (provide 'init-edit)

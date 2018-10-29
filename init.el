@@ -7,6 +7,7 @@
 (require 'init-package)
 (require 'init-edit)
 (require 'init-org)
+(require 'init-git)
 
 (require 'init-python)
 (require 'init-haskell)
