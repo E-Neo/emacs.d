@@ -3,10 +3,12 @@ My Emacs config
 
 Features
 --------
-  This configuration adds some customization for the following:
+- IDE for:
+  - C/C++
   - Python
   - Haskell
-  - Org mode
+- Org-mode exports to LaTeX with Chinese supported and syntax highlighting.
+- Audio/Video player.
 
 Installation
 ------------

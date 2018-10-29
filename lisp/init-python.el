@@ -1,6 +1,7 @@
 ;;; Package --- Python settings
 ;;; Commentary:
 ;;; Code:
+
 (require 'rx)
 
 
@@ -12,12 +13,6 @@
     :init
     (eval-after-load "company"
       '(add-to-list 'company-backends 'company-anaconda))))
-;; (when (maybe-require-package 'anaconda-mode)
-;;   (add-hook 'python-mode-hook 'anaconda-mode)
-;;   (add-hook 'python-mode-hook 'anaconda-eldoc-mode)
-;;   (when (maybe-require-package 'company-anaconda)
-;;     (eval-after-load "company"
-;;       '(add-to-list 'company-backends 'company-anaconda))))
 
 
 (defun workon (virtualenv)
@@ -26,7 +21,6 @@
 		      (read-directory-name "workon: " "~/.virtualenvs/"))))
   (pythonic-activate virtualenv))
 
-
 (defun deactivate ()
   "Deactivate virtualenv."
   (interactive)
@@ -34,6 +28,5 @@
 
 
 (provide 'init-python)
-
 
 ;;; init-python.el ends here

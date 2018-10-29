@@ -1,6 +1,7 @@
 anaconda-mode/
 auto-save-list/
 elpa/
+emms/
 irony/
 .emacs.desktop
 .emacs.desktop.lock
