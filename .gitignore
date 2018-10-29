@@ -1,0 +1,6 @@
+anaconda-mode/
+auto-save-list/
+elpa/
+custom.el
+.emacs.desktop
+.emacs.desktop.lock
