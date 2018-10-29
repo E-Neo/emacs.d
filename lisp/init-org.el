@@ -11,7 +11,7 @@
 (setq org-latex-pdf-process
       '("latexmk -pdflatex='xelatex -shell-escape -interaction nonstopmode' -pdf -f %f && latexmk -bibtex -c"))
 (setq-default org-format-latex-options
-	      (cdr '(_ :scale 2)))
+	      (plist-put org-format-latex-options :scale 2.0))
 
 
 (provide 'init-org)

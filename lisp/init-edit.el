@@ -11,6 +11,12 @@
  show-trailing-whitespace t)
 
 
+;;; GUI settings.
+(tool-bar-mode -1)
+(scroll-bar-mode -1)
+
+
+;;; Use y-or-n.
 (fset 'yes-or-no-p 'y-or-n-p)
 
 
@@ -47,7 +53,11 @@
 
 ;;; Settings about auto complete.
 (use-package company
-  :hook (after-init . global-company-mode))
+  :hook (after-init . global-company-mode)
+  :config
+  (use-package company-quickhelp
+    :config
+    (company-quickhelp-mode)))
 
 
 ;;; Settings about syntax checking.
