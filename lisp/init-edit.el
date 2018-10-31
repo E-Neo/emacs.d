@@ -18,6 +18,10 @@
 (global-set-key [mouse-5] (lambda () (interactive) (scroll-up 1)))
 
 
+;;; Font settings.
+(set-face-attribute 'default nil :font "Noto Sans Mono CJK SC" :height 150)
+
+
 ;;; Use y-or-n.
 (fset 'yes-or-no-p 'y-or-n-p)
 
@@ -25,10 +29,6 @@
 ;;; Session settings.
 (desktop-save-mode 1)
 (savehist-mode 1)
-
-
-;;; Set font size
-(set-face-attribute 'default nil :height 150)
 
 
 ;;; Settings about parenthesis.
