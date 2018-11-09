@@ -3,13 +3,18 @@ My Emacs config
 
 Features
 --------
-- IDE for:
+1. IDE for:
   - C/C++
+  - OCaml
   - Python
   - Haskell
-- Org-mode exports to LaTeX with Chinese supported and syntax highlighting.
-- Audio/Video player.
+2. Org-mode exports to LaTeX with Chinese supported and syntax highlighting.
+3. Audio/Video player.
 
 Installation
 ------------
+Just
   git clone git@github.com:E-Neo/emacs.d.git ~/.emacs.d
+Please note that if you write OCaml make sure you have opam, merlin and utop
+installed, or you can just comment out (require 'init-ocaml) in init.el.
+Have fun!

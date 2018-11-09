@@ -14,6 +14,7 @@
 (require 'init-c)
 (require 'init-python)
 (require 'init-haskell)
+(require 'init-ocaml)
 
 (require 'init-apps)
 

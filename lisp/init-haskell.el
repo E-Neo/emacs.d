@@ -17,6 +17,10 @@
   :group 'intero
   :type '(string))
 
+(defcustom intero-extra-ghci-options '("-fno-defer-out-of-scope-variables")
+  "Fix panic."
+  :group 'intero
+  :type '(string))
 
 (provide 'init-haskell)
 

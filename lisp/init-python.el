@@ -12,7 +12,10 @@
   (use-package company-anaconda
     :init
     (eval-after-load "company"
-      '(add-to-list 'company-backends 'company-anaconda))))
+      '(add-to-list 'company-backends 'company-anaconda)))
+  (when (executable-find "ipython")
+    (setq python-shell-interpreter "ipython")
+    (setq python-shell-interpreter-args "-i --simple-prompt")))
 
 
 (defun workon (virtualenv)
