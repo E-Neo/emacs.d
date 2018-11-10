@@ -21,6 +21,10 @@
       ;; Automatically start it in OCaml buffers
       (add-hook 'tuareg-mode-hook 'merlin-mode t)
       (add-hook 'caml-mode-hook 'merlin-mode t)))
+  (use-package flycheck-ocaml
+    :init
+    (setq merlin-error-after-save nil)
+    (with-eval-after-load 'merlin (flycheck-ocaml-setup)))
 
   ;; config utop
   (defcustom utop-command "opam exec -- utop -emacs"
@@ -37,6 +41,10 @@
   (autoload 'utop "utop" "Toplevel for OCaml" t)
   (autoload 'utop-minor-mode "utop" "Minor mode for utop" t)
   (add-hook 'tuareg-mode-hook 'utop-minor-mode))
+
+(use-package merlin-eldoc
+  :ensure t
+  :hook ((reason-mode tuareg-mode caml-mode) . merlin-eldoc-setup))
 
 (provide 'init-ocaml)
 
