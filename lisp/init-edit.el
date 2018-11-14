@@ -11,6 +11,10 @@
  show-trailing-whitespace t)
 
 
+;;; Show line numbers.
+(add-hook 'prog-mode-hook 'linum-mode)
+
+
 ;;; GUI settings.
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
