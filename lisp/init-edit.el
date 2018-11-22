@@ -15,6 +15,11 @@
 (add-hook 'prog-mode-hook 'linum-mode)
 
 
+;;; Use solarized-dark theme.
+(use-package solarized-theme
+  :config
+  (load-theme 'solarized-dark t))
+
 ;;; GUI settings.
 (tool-bar-mode -1)
 (scroll-bar-mode -1)

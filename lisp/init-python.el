@@ -1,4 +1,4 @@
-;;; Package --- Python settings
+;;; init-python.el --- Python settings
 ;;; Commentary:
 ;;; Code:
 
