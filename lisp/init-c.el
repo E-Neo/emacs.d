@@ -19,6 +19,14 @@
   (use-package irony-eldoc
     :hook (irony-mode . irony-eldoc)))
 
+(use-package clang-format
+  :config
+  (setq-default clang-format-style "Google")
+  (defun my-before-save ()
+    (when (eq major-mode 'c++-mode)
+      (clang-format-buffer)))
+  :hook
+  (before-save . my-before-save))
 
 (provide 'init-c)
 
