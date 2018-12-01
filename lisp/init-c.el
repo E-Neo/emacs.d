@@ -2,6 +2,9 @@
 ;;; Commentary:
 ;;; Code:
 
+;; Cuda:
+(add-to-list 'auto-mode-alist '("\\.cu\\'" . c++-mode))
+
 (use-package irony
   :hook ((c++-mode . irony-mode)
 	 (c-mode . irony-mode)

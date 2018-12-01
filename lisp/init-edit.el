@@ -14,6 +14,8 @@
 ;;; Show line numbers.
 (add-hook 'prog-mode-hook 'linum-mode)
 
+;;; Imenu
+(add-hook 'prog-mode-hook 'imenu-add-menubar-index)
 
 ;;; Use solarized-dark theme.
 (use-package solarized-theme
