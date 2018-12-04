@@ -10,6 +10,11 @@
  scroll-preserve-screen-position 'always
  show-trailing-whitespace t)
 
+;;; Kill Ring & Undo Tree
+(use-package browse-kill-ring)
+(use-package undo-tree
+  :config
+  (global-undo-tree-mode))
 
 ;;; Show line numbers.
 (add-hook 'prog-mode-hook 'linum-mode)
