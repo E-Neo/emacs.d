@@ -55,7 +55,7 @@
 (defun my-split-window-right ()
   "Split the selected window into two side-by-side windows."
   (interactive)
-  (set-window-buffer (split-window-below) (other-buffer)))
+  (set-window-buffer (split-window-right) (other-buffer)))
 
 (global-set-key (kbd "C-x 2") 'my-split-window-below)
 (global-set-key (kbd "C-x 3") 'my-split-window-right)
