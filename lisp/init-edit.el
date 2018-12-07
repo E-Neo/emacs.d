@@ -4,6 +4,7 @@
 
 
 (setq-default
+ dired-dwim-target t
  column-number-mode t
  make-backup-files nil
  mouse-yank-at-point t
@@ -41,6 +42,24 @@
 ;;; Use y-or-n.
 (fset 'yes-or-no-p 'y-or-n-p)
 
+;;; Switch window.
+(use-package switch-window
+  :config
+  (global-set-key (kbd "C-x o") 'switch-window))
+
+(defun my-split-window-below ()
+  "Split the selected window into two windows, one above the other."
+  (interactive)
+  (set-window-buffer (split-window-below) (other-buffer)))
+
+(defun my-split-window-right ()
+  "Split the selected window into two side-by-side windows."
+  (interactive)
+  (set-window-buffer (split-window-below) (other-buffer)))
+
+(global-set-key (kbd "C-x 2") 'my-split-window-below)
+(global-set-key (kbd "C-x 3") 'my-split-window-right)
+
 
 ;;; Session settings.
 (desktop-save-mode 1)
@@ -52,7 +71,7 @@
 (add-hook 'after-init-hook 'show-paren-mode)
 
 
-;;; Sometimes we don't show trailing whitespace.
+;;; Sometimes we don't show trailing white space.
 (dolist (hook '(special-mode-hook
                 Info-mode-hook
                 eww-mode-hook
@@ -64,10 +83,12 @@
   (add-hook hook (lambda () (setq show-trailing-whitespace nil))))
 
 
-;;; Clean up whitespace.
+;;; Clean up white space.
 (use-package whitespace-cleanup-mode
   :hook (after-init . global-whitespace-cleanup-mode))
 
+;;; Spell checking.
+(add-hook 'prog-mode-hook 'flyspell-prog-mode)
 
 ;;; Settings about auto complete.
 (use-package company
