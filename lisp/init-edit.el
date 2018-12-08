@@ -88,6 +88,7 @@
   :hook (after-init . global-whitespace-cleanup-mode))
 
 ;;; Spell checking.
+(add-hook 'text-mode-hook 'flyspell-mode)
 (add-hook 'prog-mode-hook 'flyspell-prog-mode)
 
 ;;; Settings about auto complete.

@@ -27,10 +27,9 @@
     (with-eval-after-load 'merlin (flycheck-ocaml-setup)))
 
   ;; config utop
-  (defcustom utop-command "opam exec -- utop -emacs"
-    "The command to execute for utop."
-    :type 'string
-    :group 'utop)
+  (setq-default
+   utop-command "opam exec -- utop -emacs"
+   tuareg-interactive-program "opam exec -- ocaml")
   ;; Add the opam lisp dir to the emacs load path
   (add-to-list
    'load-path
