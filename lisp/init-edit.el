@@ -9,7 +9,13 @@
  make-backup-files nil
  mouse-yank-at-point t
  scroll-preserve-screen-position 'always
- show-trailing-whitespace t)
+ show-trailing-whitespace t
+ global-auto-revert-non-file-buffers t
+ auto-revert-verbose nil)
+
+
+;;; Auto revert.
+(add-hook 'after-init-hook 'global-auto-revert-mode)
 
 ;;; Kill Ring & Undo Tree
 (use-package browse-kill-ring)
