@@ -12,10 +12,12 @@
   (use-package company-anaconda
     :init
     (eval-after-load "company"
-      '(add-to-list 'company-backends 'company-anaconda)))
-  (when (executable-find "ipython")
-    (setq python-shell-interpreter "ipython")
-    (setq python-shell-interpreter-args "-i --simple-prompt")))
+      '(add-to-list 'company-backends 'company-anaconda))))
+  ;; When using ipython under virtualenv there will be no auto completion,
+  ;; maybe there is something wrong in python.el's `python-shell-completion-at-point'.
+  ;; (when (executable-find "ipython")
+  ;;   (setq python-shell-interpreter "ipython")
+  ;;   (setq python-shell-interpreter-args "-i --simple-prompt"))
 
 
 (defun workon (virtualenv)

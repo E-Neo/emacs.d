@@ -11,7 +11,7 @@
 (setq org-latex-pdf-process
       '("latexmk \
 -pdflatex='xelatex -8bit -shell-escape -interaction nonstopmode' \
--pdf -f %f && latexmk -bibtex -c && rm -rf _minted-%b %b.tex"))
+-pdf -f %f && latexmk -bibtex -c && rm -rf ltximg _minted-%b %b.tex"))
 (setq-default org-format-latex-options
 	      (plist-put org-format-latex-options :scale 2.0))
 
