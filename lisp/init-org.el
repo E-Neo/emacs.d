@@ -15,6 +15,12 @@
 (setq-default org-format-latex-options
 	      (plist-put org-format-latex-options :scale 2.0))
 
+;;; The following code fixes org preview foreground color always black problem.
+(let ((dvipng (alist-get 'dvipng org-preview-latex-process-alist)))
+  (add-to-list 'org-preview-latex-process-alist
+	       (cons 'dvipng (plist-put dvipng :latex-header "\\documentclass{article}
+[PACKAGES]
+\\pagestyle{empty}"))))
 
 ;;; babel settings.
 (org-babel-do-load-languages
