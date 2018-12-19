@@ -19,7 +19,7 @@
 (let ((dvipng (alist-get 'dvipng org-preview-latex-process-alist)))
   (add-to-list 'org-preview-latex-process-alist
 	       (cons 'dvipng (plist-put dvipng :latex-header "\\documentclass{article}
-[PACKAGES]
+\\usepackage{amsmath}
 \\pagestyle{empty}"))))
 
 ;;; babel settings.
