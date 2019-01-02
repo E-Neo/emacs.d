@@ -20,6 +20,7 @@
   (add-to-list 'org-preview-latex-process-alist
 	       (cons 'dvipng (plist-put dvipng :latex-header "\\documentclass{article}
 \\usepackage{amsmath}
+\\usepackage{amsfonts}
 \\pagestyle{empty}"))))
 
 ;;; babel settings.
