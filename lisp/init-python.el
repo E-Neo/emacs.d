@@ -20,6 +20,11 @@
   ;;   (setq python-shell-interpreter-args "-i --simple-prompt"))
 
 
+(use-package cython-mode
+  :init
+  (use-package flycheck-cython))
+
+
 (defun workon (virtualenv)
   "Workon VIRTUALENV."
   (interactive (list (expand-file-name

@@ -101,11 +101,6 @@
 (use-package company
   :hook (after-init . global-company-mode)
   :config
-  (defun my-company-text ()
-    (make-local-variable 'company-backends)
-    (add-to-list 'company-backends 'company-ispell))
-  (add-hook 'text-mode-hook 'my-company-text)
-  (add-hook 'flyspell-prog-mode-hook 'my-company-text)
   (use-package company-quickhelp
     :config
     (company-quickhelp-mode)))
