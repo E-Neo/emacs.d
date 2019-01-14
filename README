@@ -14,7 +14,7 @@ Features
 Installation
 ------------
 Just
-  git clone git@github.com:E-Neo/emacs.d.git ~/.emacs.d
+  git clone https://github.com/E-Neo/emacs.d.git ~/.emacs.d
 Please note that if you write OCaml make sure you have opam, merlin and utop
 installed, or you can just comment out (require 'init-ocaml) in init.el.
 Have fun!
