@@ -28,7 +28,7 @@
 (defun workon (virtualenv)
   "Workon VIRTUALENV."
   (interactive (list (expand-file-name
-		      (read-directory-name "workon: " "~/.virtualenvs/"))))
+		      (read-directory-name "workon: " "~/usr/miniconda3/envs/"))))
   (pythonic-activate virtualenv))
 
 (defun deactivate ()
