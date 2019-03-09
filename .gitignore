@@ -4,6 +4,7 @@ elpa/
 emms/
 irony/
 games/
+transient/
 .emacs.desktop
 .emacs.desktop.lock
 amx-items
