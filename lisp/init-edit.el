@@ -72,6 +72,13 @@
 (savehist-mode 1)
 
 
+;;; Highlight symbol at point.
+(use-package highlight-symbol
+  :init
+  (add-hook 'prog-mode-hook 'highlight-symbol-mode)
+  (setq-default highlight-symbol-idle-delay 0.6))
+
+
 ;;; Settings about parenthesis.
 (add-hook 'after-init-hook 'electric-pair-mode)
 (add-hook 'after-init-hook 'show-paren-mode)
