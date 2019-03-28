@@ -15,6 +15,8 @@
 (require 'init-python)
 (require 'init-haskell)
 (require 'init-ocaml)
+(require 'init-antlr)
+(require 'init-database)
 
 (require 'init-apps)
 
