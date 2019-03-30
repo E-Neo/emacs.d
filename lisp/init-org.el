@@ -5,6 +5,10 @@
 
 (require 'ox-latex)
 
+(add-hook 'org-mode-hook
+	  (lambda ()
+	    (modify-syntax-entry ?$ "$$" org-mode-syntax-table)))
+
 
 (add-to-list 'org-latex-packages-alist '("" "minted"))
 (setq org-latex-listings 'minted)

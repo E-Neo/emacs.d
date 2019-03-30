@@ -104,6 +104,11 @@
 (add-hook 'text-mode-hook 'flyspell-mode)
 (add-hook 'prog-mode-hook 'flyspell-prog-mode)
 
+;;; Snippet.
+(use-package yasnippet
+  :config
+  (yas-global-mode 1))
+
 ;;; Settings about auto complete.
 (use-package company
   :hook (after-init . global-company-mode)
