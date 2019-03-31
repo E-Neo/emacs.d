@@ -107,7 +107,9 @@
 ;;; Snippet.
 (use-package yasnippet
   :config
-  (yas-global-mode 1))
+  (yas-reload-all)
+  (add-hook 'prog-mode-hook #'yas-minor-mode)
+  (add-hook 'org-mode-hook #'yas-minor-mode))
 
 ;;; Settings about auto complete.
 (use-package company
