@@ -4,6 +4,7 @@
 
 
 (setq-default
+ indent-tabs-mode nil
  dired-dwim-target t
  column-number-mode t
  make-backup-files nil
@@ -106,10 +107,11 @@
 
 ;;; Snippet.
 (use-package yasnippet
+  :hook ((prog-mode . yas-minor-mode)
+	 (org-mode . yas-minor-mode))
   :config
-  (yas-reload-all)
-  (add-hook 'prog-mode-hook #'yas-minor-mode)
-  (add-hook 'org-mode-hook #'yas-minor-mode))
+  (yas-reload-all))
+
 
 ;;; Settings about auto complete.
 (use-package company

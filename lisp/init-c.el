@@ -31,13 +31,11 @@
     (when (member major-mode irony-supported-major-modes)
       (irony-mode)))
   (use-package company-irony
+    :after company
     :config
-    (eval-after-load 'company
-      '(add-to-list 'company-backends 'company-irony)))
+    (add-to-list 'company-backends 'company-irony))
   (use-package flycheck-irony
-    :config
-    (eval-after-load 'flycheck
-      '(add-hook 'flycheck-mode-hook #'flycheck-irony-setup)))
+    :hook (flycheck-mode . flycheck-irony-setup))
   (use-package irony-eldoc
     :hook (irony-mode . irony-eldoc)))
 
