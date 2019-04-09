@@ -2,8 +2,6 @@
 ;;; Commentary:
 ;;; Code:
 
-(require 'rx)
-
 
 (use-package anaconda-mode
   :hook ((python-mode . anaconda-mode)
@@ -13,11 +11,6 @@
     :init
     (eval-after-load "company"
       '(add-to-list 'company-backends 'company-anaconda))))
-  ;; When using ipython under virtualenv there will be no auto completion,
-  ;; maybe there is something wrong in python.el's `python-shell-completion-at-point'.
-  ;; (when (executable-find "ipython")
-  ;;   (setq python-shell-interpreter "ipython")
-  ;;   (setq python-shell-interpreter-args "-i --simple-prompt"))
 
 
 (use-package cython-mode
@@ -29,12 +22,22 @@
   "Workon VIRTUALENV."
   (interactive (list (expand-file-name
 		      (read-directory-name "workon: " "~/usr/miniconda3/envs/"))))
-  (pythonic-activate virtualenv))
+  (pythonic-activate virtualenv)
+  (if (file-exists-p (concat virtualenv "bin/ipython"))
+      (setq python-shell-interpreter "ipython"
+            python-shell-interpreter-args "-i --simple-prompt")
+    (setq python-shell-interpreter "python"
+          python-shell-interpreter-args "-i")))
 
 (defun deactivate ()
   "Deactivate virtualenv."
   (interactive)
-  (pythonic-deactivate))
+  (pythonic-deactivate)
+  (if (executable-find "ipython")
+      (setq python-shell-interpreter "ipython"
+            python-shell-interpreter-args "-i --simple-prompt")
+    (setq python-shell-interpreter "python"
+          python-shell-interpreter-args "-i")))
 
 
 (provide 'init-python)
