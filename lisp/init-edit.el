@@ -79,11 +79,14 @@
   (add-hook 'prog-mode-hook 'highlight-symbol-mode)
   (setq-default highlight-symbol-idle-delay 0.6))
 
+;;; Prettify symbols.
+(add-hook 'after-init-hook 'global-prettify-symbols-mode)
 
 ;;; Settings about parenthesis.
 (add-hook 'after-init-hook 'electric-pair-mode)
 (add-hook 'after-init-hook 'show-paren-mode)
-
+(use-package rainbow-delimiters
+  :hook (prog-mode . rainbow-delimiters-mode))
 
 ;;; Sometimes we don't show trailing white space.
 (dolist (hook '(special-mode-hook
