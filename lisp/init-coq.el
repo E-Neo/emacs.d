@@ -9,6 +9,10 @@
     :hook ((coq-mode . company-coq-mode))))
 
 
+(use-package flycheck
+  :init (setq flycheck-global-modes '(not coq-mode)))
+
+
 (provide 'init-coq)
 
 ;;; init-coq.el ends here
