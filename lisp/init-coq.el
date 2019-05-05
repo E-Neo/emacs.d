@@ -4,7 +4,8 @@
 
 (use-package proof-general
   :config
-  (custom-set-variables '(coq-prog-name "~/.opam/default/bin/coqtop"))
+  (customize-set-variable 'coq-compile-before-require t)
+  (customize-set-variable 'proof-three-window-mode-policy 'hybrid)
   (use-package company-coq
     :hook ((coq-mode . company-coq-mode))))
 
