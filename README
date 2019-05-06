@@ -3,13 +3,16 @@ My Emacs config
 
 Features
 --------
-1. IDE for:
+1. Improved support for the following programming languages:
   - C/C++
+  - Haskell
   - OCaml
   - Python
-  - Haskell
+  - Scheme
 2. Org-mode exports to LaTeX with Chinese supported and syntax highlighting.
-3. Audio/Video player.
+3. Coq with Proof General and company-coq.
+4. Audio/Video player.
+5. Snippets.
 
 Installation
 ------------
