@@ -2,7 +2,10 @@
 ;;; Commentary:
 ;;; Code:
 
-(use-package geiser)
+(use-package geiser
+  :config
+  (require 'geiser)
+  (require 'geiser-racket))
 
 
 (provide 'init-scheme)
