@@ -28,7 +28,8 @@
 (add-hook 'prog-mode-hook 'linum-mode)
 
 ;;; Imenu
-(add-hook 'prog-mode-hook 'imenu-add-menubar-index)
+(add-hook 'prog-mode-hook
+          `(lambda () (condition-case nil (imenu-add-menubar-index) (error nil))))
 
 ;;; Use solarized-dark theme.
 (use-package solarized-theme

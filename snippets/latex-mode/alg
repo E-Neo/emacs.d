@@ -1,5 +1,5 @@
 # key: alg
 # --
-\begin{algorithm}
-  $0
+\begin{algorithm}[H]
+$0
 \end{algorithm}
