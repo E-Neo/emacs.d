@@ -44,7 +44,8 @@
 
 
 ;;; Font settings.
-(set-face-attribute 'default nil :font "Noto Sans Mono CJK SC" :height 150)
+(when (find-font (font-spec :name "Noto Sans Mono CJK SC"))
+  (set-face-attribute 'default nil :font "Noto Sans Mono CJK SC" :height 150))
 
 
 ;;; Use y-or-n.

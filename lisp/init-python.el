@@ -3,6 +3,9 @@
 ;;; Code:
 
 
+(setq-default
+ flycheck-python-flake8-executable "flake8")
+
 (use-package anaconda-mode
   :hook ((python-mode . anaconda-mode)
 	 (python-mode . anaconda-eldoc-mode))
