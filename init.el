@@ -15,6 +15,7 @@
 (require 'init-python)
 (require 'init-haskell)
 (require 'init-ocaml)
+(require 'init-rust)
 (require 'init-scheme)
 (require 'init-coq)
 (require 'init-antlr)

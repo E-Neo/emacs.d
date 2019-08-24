@@ -10,10 +10,22 @@
  make-backup-files nil
  mouse-yank-at-point t
  scroll-preserve-screen-position 'always
- show-trailing-whitespace t
  global-auto-revert-non-file-buffers t
  auto-revert-verbose nil)
 
+;;; Whitespace
+(require 'whitespace)
+(add-hook 'text-mode-hook
+          (lambda ()
+            (setq whitespace-style '(face tabs trailing))
+            (set-face-attribute 'whitespace-trailing nil :foreground "#FFF")
+            (whitespace-mode t)))
+(add-hook 'prog-mode-hook
+          (lambda ()
+            (setq whitespace-style '(face tabs lines-tail trailing))
+            (set-face-attribute 'whitespace-line nil :background "#FFF")
+            (set-face-attribute 'whitespace-trailing nil :foreground "#FFF")
+            (whitespace-mode t)))
 
 ;;; Auto revert.
 (add-hook 'after-init-hook 'global-auto-revert-mode)

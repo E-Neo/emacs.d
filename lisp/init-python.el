@@ -8,7 +8,7 @@
 
 (use-package anaconda-mode
   :hook ((python-mode . anaconda-mode)
-	 (python-mode . anaconda-eldoc-mode))
+         (python-mode . anaconda-eldoc-mode))
   :init
   (use-package company-anaconda
     :init
@@ -24,7 +24,7 @@
 (defun workon (virtualenv)
   "Workon VIRTUALENV."
   (interactive (list (expand-file-name
-		      (read-directory-name "workon: " "~/usr/miniconda3/envs/"))))
+                      (read-directory-name "workon: " "~/usr/miniconda3/envs/"))))
   (pythonic-activate virtualenv)
   (if (file-exists-p (concat virtualenv "bin/ipython"))
       (setq python-shell-interpreter "ipython"
