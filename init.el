@@ -3,26 +3,15 @@
 ;;; Code:
 
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
-
+(setq-default flycheck-emacs-lisp-load-path 'inherit)
 
 (require 'init-package)
 
 (require 'init-edit)
 (require 'init-org)
 (require 'init-git)
-
-(require 'init-c)
-(require 'init-python)
-(require 'init-haskell)
-(require 'init-ocaml)
-(require 'init-rust)
-(require 'init-scheme)
-(require 'init-coq)
-(require 'init-antlr)
-(require 'init-database)
-
 (require 'init-apps)
-
+(require 'init-lsp)
 
 ;;; Change custom file.
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
@@ -31,6 +20,5 @@
 
 
 (provide 'init)
-
 
 ;;; init.el ends here

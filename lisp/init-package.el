@@ -2,13 +2,13 @@
 ;;; Commentary:
 ;;; Code:
 
-
 (require 'package)
 
 
-(setq package-archives '(("melpa" . "https://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")
-			 ("gnu" . "https://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
-			 ("org" . "https://mirrors.tuna.tsinghua.edu.cn/elpa/org/")))
+(setq package-archives
+      '(("melpa" . "https://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")
+        ("gnu" . "https://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
+        ("org" . "https://mirrors.tuna.tsinghua.edu.cn/elpa/org/")))
 (package-initialize)
 
 
@@ -20,6 +20,5 @@
 
 
 (provide 'init-package)
-
 
 ;;; init-package.el ends here

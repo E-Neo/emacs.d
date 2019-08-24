@@ -2,7 +2,6 @@
 ;;; Commentary:
 ;;; Code:
 
-
 (setq-default
  indent-tabs-mode nil
  dired-dwim-target t
@@ -12,6 +11,7 @@
  scroll-preserve-screen-position 'always
  global-auto-revert-non-file-buffers t
  auto-revert-verbose nil)
+
 
 ;;; Whitespace
 (require 'whitespace)
@@ -27,8 +27,10 @@
             (set-face-attribute 'whitespace-trailing nil :foreground "#FFF")
             (whitespace-mode t)))
 
+
 ;;; Auto revert.
 (add-hook 'after-init-hook 'global-auto-revert-mode)
+
 
 ;;; Kill Ring & Undo Tree
 (use-package browse-kill-ring)
@@ -36,17 +38,22 @@
   :config
   (global-undo-tree-mode))
 
+
 ;;; Show line numbers.
 (add-hook 'prog-mode-hook 'linum-mode)
 
+
 ;;; Imenu
 (add-hook 'prog-mode-hook
-          `(lambda () (condition-case nil (imenu-add-menubar-index) (error nil))))
+          `(lambda ()
+             (condition-case nil (imenu-add-menubar-index) (error nil))))
+
 
 ;;; Use solarized-dark theme.
 (use-package solarized-theme
   :config
   (load-theme 'solarized-dark t))
+
 
 ;;; GUI settings.
 (tool-bar-mode -1)
@@ -62,6 +69,7 @@
 
 ;;; Use y-or-n.
 (fset 'yes-or-no-p 'y-or-n-p)
+
 
 ;;; Switch window.
 (use-package switch-window
@@ -93,14 +101,17 @@
   (add-hook 'prog-mode-hook 'highlight-symbol-mode)
   (setq-default highlight-symbol-idle-delay 0.6))
 
+
 ;;; Prettify symbols.
 (add-hook 'after-init-hook 'global-prettify-symbols-mode)
+
 
 ;;; Settings about parenthesis.
 (add-hook 'after-init-hook 'electric-pair-mode)
 (add-hook 'after-init-hook 'show-paren-mode)
 (use-package rainbow-delimiters
   :hook (prog-mode . rainbow-delimiters-mode))
+
 
 ;;; Sometimes we don't show trailing white space.
 (dolist (hook '(special-mode-hook
@@ -118,16 +129,18 @@
 (use-package whitespace-cleanup-mode
   :hook (after-init . global-whitespace-cleanup-mode))
 
+
 ;;; Spell checking.
 (add-hook 'text-mode-hook 'flyspell-mode)
 (add-hook 'prog-mode-hook 'flyspell-prog-mode)
 
+
 ;;; Snippet.
 (use-package yasnippet
   :hook ((prog-mode . yas-minor-mode)
-	 (org-mode . yas-minor-mode))
+         (org-mode . yas-minor-mode))
   :config
-  (yas-reload-all))
+  (eval-when-compile (yas-reload-all)))
 
 
 ;;; Settings about auto complete.
@@ -163,7 +176,7 @@
     (global-set-key (kbd "M-x") 'counsel-M-x)
     (global-set-key (kbd "C-x C-f") 'counsel-find-file)))
 
-(provide 'init-edit)
 
+(provide 'init-edit)
 
 ;;; init-edit.el ends here
