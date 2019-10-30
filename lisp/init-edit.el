@@ -138,9 +138,11 @@
 ;;; Snippet.
 (use-package yasnippet
   :hook ((prog-mode . yas-minor-mode)
+         (latex-mode . yas-minor-mode)
          (org-mode . yas-minor-mode))
   :config
-  (eval-when-compile (yas-reload-all)))
+  (declare-function yas-reload-all "yasnippet.el")
+  (yas-reload-all))
 
 
 ;;; Settings about auto complete.

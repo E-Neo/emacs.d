@@ -49,7 +49,9 @@
          (rust-mode . lsp-deferred))
   :config
   (setq lsp-prefer-flymake nil)
-  (use-package lsp-ui)
+  (use-package lsp-ui
+    :config
+    (setq-default lsp-ui-sideline-enable nil))
   (use-package company-lsp))
 
 (provide 'init-lsp)
