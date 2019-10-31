@@ -13,6 +13,13 @@
  auto-revert-verbose nil)
 
 
+;;; PATH
+(use-package exec-path-from-shell
+  :config
+  (when (memq window-system '(mac ns x))
+    (exec-path-from-shell-initialize)))
+
+
 ;;; Whitespace
 (require 'whitespace)
 (add-hook 'text-mode-hook
