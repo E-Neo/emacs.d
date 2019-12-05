@@ -29,10 +29,16 @@
             (whitespace-mode t)))
 (add-hook 'prog-mode-hook
           (lambda ()
+            (whitespace-mode 0)
             (setq whitespace-style '(face tabs lines-tail trailing))
             (set-face-attribute 'whitespace-line nil :background "#FFF")
             (set-face-attribute 'whitespace-trailing nil :foreground "#FFF")
-            (whitespace-mode t)))
+            (whitespace-mode 1)))
+(add-hook 'rust-mode-hook
+          (lambda ()
+            (whitespace-mode 0)
+            (setq-local whitespace-line-column 100)
+            (whitespace-mode 1)))
 
 
 ;;; Auto revert.
