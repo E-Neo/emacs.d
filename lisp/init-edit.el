@@ -108,11 +108,9 @@
 (savehist-mode 1)
 
 
-;;; Highlight symbol at point.
-(use-package highlight-symbol
-  :init
-  (add-hook 'prog-mode-hook 'highlight-symbol-mode)
-  (setq-default highlight-symbol-idle-delay 0.6))
+;;; Highlight escape sequences
+(use-package highlight-escape-sequences
+  :hook (after-init . hes-mode))
 
 
 ;;; Prettify symbols.
