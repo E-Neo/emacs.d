@@ -39,18 +39,24 @@
 
 
 ;;; Rust
-(use-package rust-mode)
+(use-package rust-mode
+  :config
+  (setq-default rust-format-on-save t))
 
 
 (use-package lsp-mode
   :hook ((c-mode . lsp-deferred)
          (c++-mode . lsp-deferred)
          (python-mode . lsp-deferred)
-         (rust-mode . lsp-deferred))
+         (rust-mode . lsp-deferred)
+         (c-mode . (lambda ()
+                     (local-set-key (kbd "C-c C-f") 'lsp-format-buffer))))
   :config
   (setq lsp-prefer-flymake nil)
   (use-package lsp-ui
     :config
+    (setq-default lsp-ui-flycheck-enable t)
+    (setq-default lsp-ui-doc-enable nil)
     (setq-default lsp-ui-sideline-enable nil))
   (use-package company-lsp))
 
