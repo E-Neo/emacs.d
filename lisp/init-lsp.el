@@ -8,6 +8,10 @@
          (c++-mode . google-make-newline-indent)))
 
 
+;;; Go
+(use-package go-mode)
+
+
 ;;; Python
 (use-package pyvenv
   :config
@@ -41,16 +45,17 @@
 ;;; Rust
 (use-package rust-mode
   :config
-  (setq-default rust-format-on-save t))
+  (setq-default tab-width 4))
 
 
 (use-package lsp-mode
   :hook ((c-mode . lsp-deferred)
          (c++-mode . lsp-deferred)
+         (go-mode . lsp-deferred)
          (python-mode . lsp-deferred)
          (rust-mode . lsp-deferred)
-         (c-mode . (lambda ()
-                     (local-set-key (kbd "C-c C-f") 'lsp-format-buffer))))
+         (before-save . lsp-format-buffer)
+         (before-save . lsp-organize-imports))
   :config
   (setq lsp-prefer-flymake nil)
   (use-package lsp-ui

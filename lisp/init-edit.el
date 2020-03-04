@@ -34,6 +34,11 @@
             (set-face-attribute 'whitespace-line nil :background "#FFF")
             (set-face-attribute 'whitespace-trailing nil :foreground "#FFF")
             (whitespace-mode 1)))
+(add-hook 'go-mode-hook
+          (lambda ()
+            (whitespace-mode 0)
+            (setq whitespace-style '(face trailing))
+            (whitespace-mode 1)))
 (add-hook 'rust-mode-hook
           (lambda ()
             (whitespace-mode 0)
@@ -160,6 +165,8 @@
 (use-package company
   :hook (after-init . global-company-mode)
   :config
+  (setq company-idle-delay 0)
+  (setq company-minimum-prefix-length 1)
   (use-package company-quickhelp
     :config
     (company-quickhelp-mode)))
