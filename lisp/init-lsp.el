@@ -8,6 +8,9 @@
          (c++-mode . google-make-newline-indent)))
 
 
+;;; Erlang
+(use-package erlang)
+
 ;;; Go
 (use-package go-mode)
 
@@ -45,25 +48,25 @@
 ;;; Rust
 (use-package rust-mode
   :config
-  (setq-default tab-width 4))
+  (setq-default tab-width 4)
+  (setq-default lsp-rust-server 'rust-analyzer))
 
 
 (use-package lsp-mode
   :hook ((c-mode . lsp-deferred)
          (c++-mode . lsp-deferred)
+         (erlang-mode . lsp-deferred)
          (go-mode . lsp-deferred)
          (python-mode . lsp-deferred)
          (rust-mode . lsp-deferred)
          (before-save . lsp-format-buffer)
          (before-save . lsp-organize-imports))
   :config
-  (setq lsp-prefer-flymake nil)
   (use-package lsp-ui
     :config
-    (setq-default lsp-ui-flycheck-enable t)
-    (setq-default lsp-ui-doc-enable nil)
     (setq-default lsp-ui-sideline-enable nil))
-  (use-package company-lsp))
+  (use-package company-lsp)
+  (use-package lsp-ivy))
 
 (provide 'init-lsp)
 
