@@ -62,6 +62,7 @@
          (before-save . lsp-format-buffer)
          (before-save . lsp-organize-imports))
   :config
+  (setq lsp-signature-render-documentation nil)
   (use-package lsp-ui
     :config
     (setq-default lsp-ui-sideline-enable nil))
