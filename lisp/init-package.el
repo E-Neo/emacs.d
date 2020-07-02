@@ -6,9 +6,9 @@
 
 
 (setq package-archives
-      '(("melpa" . "https://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")
-        ("gnu" . "https://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
-        ("org" . "https://mirrors.tuna.tsinghua.edu.cn/elpa/org/")))
+      '(("melpa" . "https://mirrors.163.com/elpa/melpa/")
+        ("gnu" . "https://mirrors.163.com/elpa/gnu/")
+        ("org" . "https://mirrors.163.com/elpa/org/")))
 (package-initialize)
 
 
