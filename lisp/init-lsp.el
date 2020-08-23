@@ -11,8 +11,13 @@
 ;;; Erlang
 (use-package erlang)
 
+
 ;;; Go
 (use-package go-mode)
+
+
+;;; Lua
+(use-package lua-mode)
 
 
 ;;; Python
@@ -57,11 +62,13 @@
          (c++-mode . lsp-deferred)
          (erlang-mode . lsp-deferred)
          (go-mode . lsp-deferred)
+         (lua-mode . lsp-deferred)
          (python-mode . lsp-deferred)
          (rust-mode . lsp-deferred)
          (before-save . lsp-format-buffer)
          (before-save . lsp-organize-imports))
   :config
+  (setq-default lsp-disabled-clients '((lua-mode . emmy-lua)))
   (setq lsp-signature-render-documentation nil)
   (use-package lsp-ui
     :config

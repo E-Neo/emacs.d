@@ -1,5 +1,6 @@
 anaconda-mode/
 auto-save-list/
+.cache/
 elpa/
 emms/
 irony/
