@@ -75,8 +75,8 @@
 
 ;;; Font settings.
 (when (find-font (font-spec :name "Noto Sans Mono CJK SC"))
-  (set-face-attribute 'default nil :font "Noto Sans Mono CJK SC" :height 150))
-
+  (set-face-attribute 'default nil :font "Noto Sans Mono CJK SC"))
+(set-face-attribute 'default nil :height 150)
 
 ;;; Use y-or-n.
 (fset 'yes-or-no-p 'y-or-n-p)
