@@ -12,6 +12,7 @@
  global-auto-revert-non-file-buffers t
  auto-revert-verbose nil)
 
+(prefer-coding-system 'utf-8-unix)
 
 ;;; Whitespace
 (require 'whitespace)
