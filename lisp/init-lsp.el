@@ -21,33 +21,33 @@
 
 
 ;;; Python
-(use-package pyvenv
+(use-package conda
+  :functions try-to-use-ipython
   :config
-  (eval-when-compile
-    (defvar python-shell-interpreter)
-    (defvar python-shell-interpreter-args))
+  (setq-default
+   conda-anaconda-home (expand-file-name "~/usr/miniconda3/")
+   conda-env-home-directory (expand-file-name "~/usr/miniconda3/"))
 
-  (defun workon (virtualenv)
-    "Workon VIRTUALENV."
-    (interactive (list (expand-file-name
-                        (read-directory-name "workon: "
-                                             "~/usr/miniconda3/envs/"))))
-    (pyvenv-activate virtualenv)
-    (if (file-exists-p (concat virtualenv "bin/ipython"))
-        (setq python-shell-interpreter "ipython"
-              python-shell-interpreter-args "-i --simple-prompt")
-      (setq python-shell-interpreter "python"
-            python-shell-interpreter-args "-i")))
+  (defun try-to-use-ipython ()
+    "Try to use ipython if installed."
+    (if (executable-find
+         (if (eq system-type 'windows-nt) "ipython.exe" "ipython"))
+        (setq-default python-shell-interpreter "ipython"
+                      python-shell-interpreter-args "-i --simple-prompt")
+      (setq-default python-shell-interpreter "python"
+                    python-shell-interpreter-args "-i")))
+
+  (defun workon ()
+    "Workon env."
+    (interactive)
+    (conda-env-activate)
+    (try-to-use-ipython))
 
   (defun deactivate ()
-    "Deactivate virtualenv."
+    "Deactivate env."
     (interactive)
-    (pyvenv-deactivate)
-    (if (executable-find "ipython")
-        (setq python-shell-interpreter "ipython"
-              python-shell-interpreter-args "-i --simple-prompt")
-      (setq python-shell-interpreter "python"
-            python-shell-interpreter-args "-i"))))
+    (conda-env-deactivate)
+    (try-to-use-ipython)))
 
 
 ;;; Rust
@@ -55,6 +55,10 @@
   :config
   (setq-default tab-width 4)
   (setq-default lsp-rust-server 'rust-analyzer))
+
+
+;;; Various modes.
+(use-package yaml-mode)
 
 
 (use-package lsp-mode
