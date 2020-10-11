@@ -21,6 +21,11 @@
 
 
 ;;; Python
+(use-package lsp-pyright
+  :config
+  (use-package py-autopep8
+    :hook (python-mode . py-autopep8-enable-on-save)))
+
 (use-package conda
   :functions try-to-use-ipython
   :config
