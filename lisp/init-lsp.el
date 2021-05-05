@@ -8,6 +8,10 @@
          (c++-mode . google-make-newline-indent)))
 
 
+;;; Cypher
+(use-package cypher-mode)
+
+
 ;;; Erlang
 (use-package erlang)
 
@@ -57,6 +61,7 @@
 
 ;;; Rust
 (use-package rust-mode
+  :delight
   :config
   (setq-default tab-width 4)
   (setq-default lsp-rust-server 'rust-analyzer))
@@ -78,11 +83,11 @@
          (before-save . lsp-organize-imports))
   :config
   (setq-default lsp-disabled-clients '((lua-mode . emmy-lua)))
+  (setq lsp-eldoc-enable-hover nil)
   (setq lsp-signature-render-documentation nil)
   (use-package lsp-ui
     :config
     (setq-default lsp-ui-sideline-enable nil))
-  (use-package company-lsp)
   (use-package lsp-ivy))
 
 (provide 'init-lsp)

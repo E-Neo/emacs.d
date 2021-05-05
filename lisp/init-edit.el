@@ -14,30 +14,37 @@
 
 (prefer-coding-system 'utf-8-unix)
 
+(use-package delight)
+
+(use-package eldoc
+  :delight)
+
 ;;; Whitespace
-(require 'whitespace)
-(add-hook 'text-mode-hook
-          (lambda ()
-            (setq whitespace-style '(face tabs trailing))
-            (set-face-attribute 'whitespace-trailing nil :foreground "#FFF")
-            (whitespace-mode t)))
-(add-hook 'prog-mode-hook
-          (lambda ()
-            (whitespace-mode 0)
-            (setq whitespace-style '(face tabs lines-tail trailing))
-            (set-face-attribute 'whitespace-line nil :background "#FFF")
-            (set-face-attribute 'whitespace-trailing nil :foreground "#FFF")
-            (whitespace-mode 1)))
-(add-hook 'go-mode-hook
-          (lambda ()
-            (whitespace-mode 0)
-            (setq whitespace-style '(face trailing))
-            (whitespace-mode 1)))
-(add-hook 'rust-mode-hook
-          (lambda ()
-            (whitespace-mode 0)
-            (setq-local whitespace-line-column 100)
-            (whitespace-mode 1)))
+(use-package whitespace
+  :delight
+  :hook ((text-mode . ws-text-hook)
+         (prog-mode . ws-prog-mode-hook)
+         (go-mode . ws-go-mode-hook)
+         (rust-mode . ws-rust-mode-hook))
+  :config
+  (defun ws-text-hook ()
+    (setq whitespace-style '(face tabs trailing))
+    (set-face-attribute 'whitespace-trailing nil :foreground "#FFF")
+    (whitespace-mode t))
+  (defun ws-prog-mode-hook ()
+    (whitespace-mode 0)
+    (setq whitespace-style '(face tabs lines-tail trailing))
+    (set-face-attribute 'whitespace-line nil :background "#FFF")
+    (set-face-attribute 'whitespace-trailing nil :foreground "#FFF")
+    (whitespace-mode 1))
+  (defun ws-go-mode-hook ()
+    (whitespace-mode 0)
+    (setq whitespace-style '(face trailing))
+    (whitespace-mode 1))
+  (defun ws-rust-mode-hook ()
+    (whitespace-mode 0)
+    (setq-local whitespace-line-column 100)
+    (whitespace-mode 1)))
 
 
 ;;; Auto revert.
@@ -47,6 +54,7 @@
 ;;; Kill Ring & Undo Tree
 (use-package browse-kill-ring)
 (use-package undo-tree
+  :delight
   :config
   (global-undo-tree-mode))
 
@@ -137,16 +145,22 @@
 
 ;;; Clean up white space.
 (use-package whitespace-cleanup-mode
+  :delight
   :hook (after-init . global-whitespace-cleanup-mode))
 
 
 ;;; Spell checking.
-(add-hook 'text-mode-hook 'flyspell-mode)
-(add-hook 'prog-mode-hook 'flyspell-prog-mode)
+(use-package flyspell
+  :delight
+  :hook ((text-mode . flyspell-mode)
+         (prog-mode . flyspell-prog-mode))
+  :config
+  (setq-default ispell-program-name "hunspell"))
 
 
 ;;; Snippet.
 (use-package yasnippet
+  :delight yas-minor-mode
   :hook ((prog-mode . yas-minor-mode)
          (latex-mode . yas-minor-mode)
          (org-mode . yas-minor-mode))
@@ -157,6 +171,7 @@
 
 ;;; Settings about auto complete.
 (use-package company
+  :delight
   :hook (after-init . global-company-mode)
   :config
   (setq company-idle-delay 0)
@@ -168,6 +183,7 @@
 
 ;;; Settings about syntax checking.
 (use-package flycheck
+  :delight
   :hook (after-init . global-flycheck-mode)
   :init
   (use-package flycheck-color-mode-line
@@ -178,6 +194,7 @@
 
 ;;; Minibuffer completion.
 (use-package ivy
+  :delight
   :init
   (use-package amx)
   :config
