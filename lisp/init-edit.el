@@ -19,6 +19,11 @@
 (use-package eldoc
   :delight)
 
+
+;;; gpg
+(setq-default epa-pinentry-mode 'loopback)
+
+
 ;;; Whitespace
 (use-package whitespace
   :delight

@@ -12,6 +12,10 @@
 (use-package cypher-mode)
 
 
+;;; Dockerfile
+(use-package dockerfile-mode)
+
+
 ;;; Erlang
 (use-package erlang)
 
