@@ -28,6 +28,18 @@
 (use-package lua-mode)
 
 
+;;; OCaml
+(use-package tuareg
+  :config
+  (use-package utop
+    :hook (tuareg-mode . utop-minor-mode)
+    :config
+    (setq utop-command "opam config exec -- utop -emacs"))
+  (use-package ocamlformat
+    :custom (ocamlformat-enable 'enable-outside-detected-project)
+    :hook (before-save . ocamlformat-before-save)))
+
+
 ;;; Python
 (use-package lsp-pyright
   :config
@@ -83,6 +95,7 @@
          (lua-mode . lsp-deferred)
          (python-mode . lsp-deferred)
          (rust-mode . lsp-deferred)
+         (tuareg-mode . lsp-deferred)
          (before-save . lsp-format-buffer)
          (before-save . lsp-organize-imports))
   :config
