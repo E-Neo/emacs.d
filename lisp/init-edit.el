@@ -12,7 +12,9 @@
  global-auto-revert-non-file-buffers t
  auto-revert-verbose nil)
 
+
 (prefer-coding-system 'utf-8-unix)
+
 
 (use-package delight)
 
@@ -82,7 +84,14 @@
              (condition-case nil (imenu-add-menubar-index) (error nil))))
 
 
-;;; Use solarized-dark theme.
+(use-package neotree
+  :bind ([f8] . neotree-toggle)
+  :config
+  (setq neo-smart-open t)
+  (setq neo-window-fixed-size nil)
+  (setq neo-hide-cursor t))
+
+
 (use-package solarized-theme
   :config
   (load-theme 'solarized-dark t))
@@ -100,15 +109,8 @@
 (when (member "Noto Sans Mono CJK SC" (font-family-list))
   (set-frame-font "Noto Sans Mono CJK SC" t t))
 ;; set font for emoji
-(set-fontset-font
- t
- '(#x1f300 . #x1fad0)
- (cond
-  ((member "Noto Color Emoji" (font-family-list)) "Noto Color Emoji")
-  ((member "Noto Emoji" (font-family-list)) "Noto Emoji")
-  ((member "Segoe UI Emoji" (font-family-list)) "Segoe UI Emoji")
-  ((member "Apple Color Emoji" (font-family-list)) "Apple Color Emoji")
-  ((member "Symbola" (font-family-list)) "Symbola")))
+(when (member "Noto Color Emoji" (font-family-list))
+  (set-fontset-font t 'symbol "Noto Color Emoji" nil 'append))
 ;; set font size
 (set-face-attribute 'default nil :height 150)
 
