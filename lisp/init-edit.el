@@ -84,17 +84,28 @@
              (condition-case nil (imenu-add-menubar-index) (error nil))))
 
 
+(use-package all-the-icons)
+
+
 (use-package neotree
   :bind ([f8] . neotree-toggle)
   :config
+  (setq neo-theme 'icons)
   (setq neo-smart-open t)
   (setq neo-window-fixed-size nil)
   (setq neo-hide-cursor t))
 
 
-(use-package solarized-theme
+(use-package doom-themes
   :config
-  (load-theme 'solarized-dark t))
+  (setq doom-themes-enable-bold t
+        doom-themes-enable-italic t)
+  (load-theme 'doom-one t)
+  (doom-themes-visual-bell-config)
+  (doom-themes-org-config)
+
+  (use-package doom-modeline
+    :hook (after-init . doom-modeline-mode)))
 
 
 ;;; GUI settings.
@@ -200,6 +211,7 @@
 ;;; Settings about auto complete.
 (use-package company
   :delight
+  :hook ((emacs-lisp-mode . company-mode))
   :config
   (setq company-idle-delay 0)
   (setq company-minimum-prefix-length 1)
