@@ -30,9 +30,12 @@
 
 ;;; OCaml
 (use-package tuareg
+  :delight "OCaml"
   :config
   (use-package utop
-    :hook (tuareg-mode . utop-minor-mode)
+    :delight utop-minor-mode
+    :hook ((tuareg-mode . utop-minor-mode)
+           (utop-mode . company-mode))
     :config
     (setq utop-command "opam config exec -- utop -emacs"))
   (use-package ocamlformat

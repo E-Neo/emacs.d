@@ -199,9 +199,7 @@
   :hook (after-init . global-flycheck-mode)
   :init
   (use-package flycheck-color-mode-line
-    :init
-    (eval-after-load "flycheck"
-      '(add-hook 'flycheck-mode-hook 'flycheck-color-mode-line-mode))))
+    :hook (flycheck-mode . flycheck-color-mode-line-mode)))
 
 
 ;;; Minibuffer completion.
