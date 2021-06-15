@@ -96,9 +96,22 @@
 
 
 ;;; Font settings.
-(when (find-font (font-spec :name "Noto Sans Mono CJK SC"))
-  (set-face-attribute 'default nil :font "Noto Sans Mono CJK SC"))
+;; default font
+(when (member "Noto Sans Mono CJK SC" (font-family-list))
+  (set-frame-font "Noto Sans Mono CJK SC" t t))
+;; set font for emoji
+(set-fontset-font
+ t
+ '(#x1f300 . #x1fad0)
+ (cond
+  ((member "Noto Color Emoji" (font-family-list)) "Noto Color Emoji")
+  ((member "Noto Emoji" (font-family-list)) "Noto Emoji")
+  ((member "Segoe UI Emoji" (font-family-list)) "Segoe UI Emoji")
+  ((member "Apple Color Emoji" (font-family-list)) "Apple Color Emoji")
+  ((member "Symbola" (font-family-list)) "Symbola")))
+;; set font size
 (set-face-attribute 'default nil :height 150)
+
 
 ;;; Use y-or-n.
 (fset 'yes-or-no-p 'y-or-n-p)

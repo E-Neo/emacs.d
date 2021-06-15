@@ -30,7 +30,7 @@
 
 ;;; OCaml
 (use-package tuareg
-  :delight "OCaml"
+  :delight "🐫"
   :config
   (use-package utop
     :delight utop-minor-mode
@@ -80,7 +80,7 @@
 
 ;;; Rust
 (use-package rust-mode
-  :delight
+  :delight "🦀"
   :config
   (setq-default tab-width 4)
   (setq-default lsp-rust-server 'rust-analyzer))
