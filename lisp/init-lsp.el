@@ -28,6 +28,12 @@
 (use-package lua-mode)
 
 
+;;; Markdown
+(use-package grip-mode
+  :bind (:map markdown-mode-command-map
+              ("g" . grip-mode)))
+
+
 ;;; OCaml
 (use-package tuareg
   :delight "🐫"

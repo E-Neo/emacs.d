@@ -6,9 +6,13 @@
 
 
 (setq package-archives
-      '(("melpa" . "https://mirrors.ustc.edu.cn/elpa/melpa/")
+      '(("melpa-stable" . "https://mirrors.ustc.edu.cn/elpa/melpa-stable/")
         ("gnu" . "https://mirrors.ustc.edu.cn/elpa/gnu/")
-        ("org" . "https://mirrors.ustc.edu.cn/elpa/org/")))
+        ("melpa" . "https://mirrors.ustc.edu.cn/elpa/melpa/"))
+      package-archive-priorities
+      '(("melpa-stable" . 10)
+        ("gnu" . 5)
+        ("melpa" . 0)))
 (package-initialize)
 
 

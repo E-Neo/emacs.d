@@ -26,6 +26,7 @@
 ;;; exec-path-from-shell
 (use-package exec-path-from-shell
   :config
+  (setq exec-path-from-shell-check-startup-files nil)
   (when (memq window-system '(mac ns x))
     (exec-path-from-shell-initialize)))
 
@@ -92,8 +93,7 @@
   :config
   (setq neo-theme 'icons)
   (setq neo-smart-open t)
-  (setq neo-window-fixed-size nil)
-  (setq neo-hide-cursor t))
+  (setq neo-window-fixed-size nil))
 
 
 (use-package doom-themes
@@ -105,7 +105,18 @@
   (doom-themes-org-config)
 
   (use-package doom-modeline
-    :hook (after-init . doom-modeline-mode)))
+    :init
+    (doom-modeline-mode 1)
+    (doom-modeline-def-modeline 'myline
+      '(bar workspace-name window-number modals matches buffer-info remote-host
+            buffer-position word-count parrot selection-info)
+      '(objed-state misc-info persp-name battery grip irc mu4e gnus github debug
+                    repl lsp minor-modes input-method indent-info
+                    buffer-encoding major-mode process vcs hud))
+    (defun setup-custom-modeline ()
+      (doom-modeline-set-modeline 'myline 'default))
+    (add-hook 'doom-modeline-mode-hook 'setup-custom-modeline)
+    (add-hook 'find-file-hook 'setup-custom-modeline)))
 
 
 ;;; GUI settings.
@@ -113,6 +124,9 @@
 (scroll-bar-mode -1)
 (global-set-key [mouse-4] (lambda () (interactive) (scroll-down 1)))
 (global-set-key [mouse-5] (lambda () (interactive) (scroll-up 1)))
+(setq mouse-wheel-progressive-speed nil)
+(setq mouse-wheel-follow-mouse 't)
+(setq scroll-step 1)
 
 
 ;;; Font settings.
