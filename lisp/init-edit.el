@@ -26,7 +26,7 @@
 ;;; exec-path-from-shell
 (use-package exec-path-from-shell
   :config
-  (setq exec-path-from-shell-check-startup-files nil)
+  (setq-default exec-path-from-shell-check-startup-files nil)
   (when (memq window-system '(mac ns x))
     (exec-path-from-shell-initialize)))
 
@@ -91,6 +91,7 @@
 (use-package neotree
   :bind ([f8] . neotree-toggle)
   :config
+  (setq neo-hide-cursor t)
   (setq neo-theme 'icons)
   (setq neo-smart-open t)
   (setq neo-window-fixed-size nil))
@@ -112,7 +113,7 @@
             buffer-position word-count parrot selection-info)
       '(objed-state misc-info persp-name battery grip irc mu4e gnus github debug
                     repl lsp minor-modes input-method indent-info
-                    buffer-encoding major-mode process vcs hud))
+                    buffer-encoding major-mode process vcs checker hud))
     (defun setup-custom-modeline ()
       (doom-modeline-set-modeline 'myline 'default))
     (add-hook 'doom-modeline-mode-hook 'setup-custom-modeline)
@@ -237,10 +238,7 @@
 ;;; Settings about syntax checking.
 (use-package flycheck
   :delight
-  :hook (after-init . global-flycheck-mode)
-  :init
-  (use-package flycheck-color-mode-line
-    :hook (flycheck-mode . flycheck-color-mode-line-mode)))
+  :hook (after-init . global-flycheck-mode))
 
 
 ;;; Minibuffer completion.

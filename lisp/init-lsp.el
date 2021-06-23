@@ -39,6 +39,7 @@
   :delight "🐫"
   :config
   (use-package utop
+    :pin melpa-stable
     :delight utop-minor-mode
     :hook ((tuareg-mode . utop-minor-mode)
            (utop-mode . company-mode))
@@ -107,13 +108,20 @@
          (tuareg-mode . lsp-deferred)
          (before-save . lsp-format-buffer)
          (before-save . lsp-organize-imports))
+  :init
+  (setq lsp-keymap-prefix "C-c l")
   :config
+  (define-key lsp-mode-map (kbd "C-c l") lsp-command-map)
   (setq-default lsp-disabled-clients '((lua-mode . emmy-lua)))
   (setq lsp-eldoc-enable-hover nil)
   (setq lsp-signature-render-documentation nil)
   (use-package lsp-ui
     :config
-    (setq-default lsp-ui-sideline-enable nil))
+    (setq-default lsp-ui-sideline-enable nil)
+    (define-key lsp-ui-mode-map
+      [remap xref-find-definitions] #'lsp-ui-peek-find-definitions)
+    (define-key lsp-ui-mode-map
+      [remap xref-find-references] #'lsp-ui-peek-find-references))
   (use-package lsp-ivy))
 
 (provide 'init-lsp)
