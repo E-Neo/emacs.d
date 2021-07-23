@@ -16,6 +16,9 @@
 (prefer-coding-system 'utf-8-unix)
 
 
+(use-package async)
+
+
 (use-package delight)
 
 

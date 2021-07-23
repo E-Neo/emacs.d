@@ -11,6 +11,9 @@
             (modify-syntax-entry ?$ "$$" org-mode-syntax-table)))
 
 
+(setq-default org-startup-truncated nil)
+
+
 (add-to-list 'org-latex-packages-alist '("" "minted"))
 (setq org-latex-listings 'minted)
 (setq org-latex-pdf-process
@@ -34,6 +37,9 @@
 ;;; babel settings.
 (org-babel-do-load-languages
  'org-babel-load-languages '((python . t)))
+
+
+(use-package org-ref)
 
 
 (provide 'init-org)

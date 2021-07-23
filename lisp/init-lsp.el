@@ -2,10 +2,14 @@
 ;;; Commentary:
 ;;; Code:
 
-;;; C++
+;;; C/C++
 (use-package google-c-style
   :hook ((c++-mode . google-set-c-style)
          (c++-mode . google-make-newline-indent)))
+
+(use-package ccls
+  :hook ((c-mode c++-mode objc-mode cuda-mode) .
+         (lambda () (require 'ccls) (lsp))))
 
 
 ;;; Cypher
