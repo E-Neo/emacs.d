@@ -2,14 +2,12 @@
 ;;; Commentary:
 ;;; Code:
 
+(require 'markdown)
+
 ;;; C/C++
 (use-package google-c-style
   :hook ((c++-mode . google-set-c-style)
          (c++-mode . google-make-newline-indent)))
-
-(use-package ccls
-  :hook ((c-mode c++-mode objc-mode cuda-mode) .
-         (lambda () (require 'ccls) (lsp))))
 
 
 ;;; Cypher
@@ -48,7 +46,7 @@
     :hook ((tuareg-mode . utop-minor-mode)
            (utop-mode . company-mode))
     :config
-    (setq utop-command "opam config exec -- utop -emacs"))
+    (setq-default utop-command "opam config exec -- utop -emacs"))
   (use-package ocamlformat
     :custom (ocamlformat-enable 'enable-outside-detected-project)
     :hook (before-save . ocamlformat-before-save)))
