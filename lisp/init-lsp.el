@@ -2,8 +2,6 @@
 ;;; Commentary:
 ;;; Code:
 
-(require 'markdown)
-
 ;;; C/C++
 (use-package google-c-style
   :hook ((c++-mode . google-set-c-style)
@@ -31,25 +29,11 @@
 
 
 ;;; Markdown
-(use-package grip-mode
-  :bind (:map markdown-mode-command-map
-              ("g" . grip-mode)))
-
-
-;;; OCaml
-(use-package tuareg
-  :delight "🐫"
+(use-package markdown-mode
   :config
-  (use-package utop
-    :pin melpa-stable
-    :delight utop-minor-mode
-    :hook ((tuareg-mode . utop-minor-mode)
-           (utop-mode . company-mode))
-    :config
-    (setq-default utop-command "opam config exec -- utop -emacs"))
-  (use-package ocamlformat
-    :custom (ocamlformat-enable 'enable-outside-detected-project)
-    :hook (before-save . ocamlformat-before-save)))
+  (use-package grip-mode
+    :bind (:map markdown-mode-command-map
+                ("g" . grip-mode))))
 
 
 ;;; Python
@@ -107,7 +91,6 @@
          (lua-mode . lsp-deferred)
          (python-mode . lsp-deferred)
          (rust-mode . lsp-deferred)
-         (tuareg-mode . lsp-deferred)
          (before-save . lsp-format-buffer)
          (before-save . lsp-organize-imports))
   :init
