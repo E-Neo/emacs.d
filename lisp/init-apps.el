@@ -14,6 +14,11 @@
   (emms-default-players))
 
 
+(use-package leetcode
+  :config
+  (setq-default leetcode-prefer-language "cpp"))
+
+
 (provide 'init-apps)
 
 ;;; init-apps.el ends here
