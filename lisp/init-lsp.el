@@ -107,7 +107,11 @@
       [remap xref-find-definitions] #'lsp-ui-peek-find-definitions)
     (define-key lsp-ui-mode-map
       [remap xref-find-references] #'lsp-ui-peek-find-references))
-  (use-package lsp-ivy))
+  (use-package lsp-ivy)
+  (use-package lsp-treemacs
+    :init
+    (lsp-treemacs-sync-mode 1)))
+
 
 (provide 'init-lsp)
 

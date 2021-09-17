@@ -91,13 +91,7 @@
 (use-package all-the-icons)
 
 
-(use-package neotree
-  :bind ([f8] . neotree-toggle)
-  :config
-  (setq neo-hide-cursor t)
-  (setq neo-theme 'icons)
-  (setq neo-smart-open t)
-  (setq neo-window-fixed-size nil))
+(use-package windresize)
 
 
 (use-package doom-themes
@@ -165,6 +159,9 @@
 
 (global-set-key (kbd "C-x 2") 'my-split-window-below)
 (global-set-key (kbd "C-x 3") 'my-split-window-right)
+
+(when (fboundp 'windmove-default-keybindings)
+  (windmove-default-keybindings))
 
 
 ;;; Session settings.
