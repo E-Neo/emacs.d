@@ -2,12 +2,6 @@
 ;;; Commentary:
 ;;; Code:
 
-;;; C/C++
-(use-package google-c-style
-  :hook ((c++-mode . google-set-c-style)
-         (c++-mode . google-make-newline-indent)))
-
-
 ;;; Cypher
 (use-package cypher-mode)
 

@@ -38,6 +38,13 @@
 (setq-default epa-pinentry-mode 'loopback)
 
 
+;;; Indent
+(use-package highlight-indent-guides
+  :hook (prog-mode . highlight-indent-guides-mode)
+  :config
+  (setq-default highlight-indent-guides-method 'column))
+
+
 ;;; Whitespace
 (use-package whitespace
   :delight
@@ -98,7 +105,7 @@
   :config
   (setq doom-themes-enable-bold t
         doom-themes-enable-italic t)
-  (load-theme 'doom-one t)
+  (load-theme 'doom-Iosvkem t)
   (doom-themes-visual-bell-config)
   (doom-themes-org-config)
 
