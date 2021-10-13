@@ -73,6 +73,10 @@
     (whitespace-mode 1)))
 
 
+(use-package which-func
+  :config
+  (which-function-mode t))
+
 ;;; Auto revert.
 (add-hook 'after-init-hook 'global-auto-revert-mode)
 
