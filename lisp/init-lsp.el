@@ -107,6 +107,11 @@
     (lsp-treemacs-sync-mode 1)))
 
 
+(use-package dap-mode
+  :config
+  (require 'dap-cpptools))
+
+
 (provide 'init-lsp)
 
 ;;; init-lsp.el ends here
