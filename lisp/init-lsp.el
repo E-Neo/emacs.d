@@ -30,6 +30,11 @@
                 ("g" . grip-mode))))
 
 
+;;; OCaml
+(use-package tuareg
+  :config
+  (use-package utop))
+
 ;;; Python
 (use-package lsp-pyright
   :config
@@ -85,6 +90,7 @@
          (lua-mode . lsp-deferred)
          (python-mode . lsp-deferred)
          (rust-mode . lsp-deferred)
+         (tuareg-mode . lsp-deferred)
          (before-save . lsp-format-buffer)
          (before-save . lsp-organize-imports))
   :init
