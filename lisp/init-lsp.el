@@ -70,6 +70,10 @@
     (try-to-use-ipython)))
 
 
+;;; Racket
+(use-package racket-mode)
+
+
 ;;; Rust
 (use-package rust-mode
   :delight "🦀"
@@ -102,6 +106,7 @@
   (setq lsp-signature-render-documentation nil)
   (use-package lsp-ui
     :config
+    (setq-default lsp-ui-doc-show-with-cursor t)
     (setq-default lsp-ui-sideline-enable nil)
     (define-key lsp-ui-mode-map
       [remap xref-find-definitions] #'lsp-ui-peek-find-definitions)

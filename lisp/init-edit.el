@@ -16,7 +16,10 @@
 (prefer-coding-system 'utf-8-unix)
 
 
-(use-package async)
+(use-package async
+  :config
+  (async-bytecomp-package-mode 1)
+  (dired-async-mode 1))
 
 
 (use-package delight)
