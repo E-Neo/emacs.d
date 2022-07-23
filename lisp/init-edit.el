@@ -89,7 +89,8 @@
 (use-package undo-tree
   :delight
   :config
-  (global-undo-tree-mode))
+  (global-undo-tree-mode)
+  (setq-default undo-tree-auto-save-history nil))
 
 
 ;;; Show line numbers.
