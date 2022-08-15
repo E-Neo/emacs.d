@@ -129,7 +129,21 @@
     (defun setup-custom-modeline ()
       (doom-modeline-set-modeline 'myline 'default))
     (add-hook 'doom-modeline-mode-hook 'setup-custom-modeline)
-    (add-hook 'find-file-hook 'setup-custom-modeline)))
+    (add-hook 'find-file-hook 'setup-custom-modeline))
+
+  (defun dark ()
+    "Load dark theme."
+    (interactive)
+    (let ((height (face-attribute 'default :height)))
+      (load-theme 'doom-Iosvkem t)
+      (set-face-attribute 'default nil :height 150)))
+
+  (defun light ()
+    "Load light theme."
+    (interactive)
+    (let ((height (face-attribute 'default :height)))
+      (load-theme 'doom-one-light t)
+      (set-face-attribute 'default nil :height 150))))
 
 
 ;;; GUI settings.
@@ -270,6 +284,15 @@
     (global-set-key (kbd "C-s") 'swiper)
     (global-set-key (kbd "M-x") 'counsel-M-x)
     (global-set-key (kbd "C-x C-f") 'counsel-find-file)))
+
+
+;;; Input methods.
+(with-temp-buffer
+  (activate-input-method "TeX")
+  (let ((quail-current-package (assoc "TeX" quail-package-alist)))
+    (quail-define-rules ((append . t))
+                        ("\\land" ?∧)
+                        ("\\lor" ?∨))))
 
 
 (provide 'init-edit)
