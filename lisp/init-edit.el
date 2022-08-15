@@ -136,14 +136,14 @@
     (interactive)
     (let ((height (face-attribute 'default :height)))
       (load-theme 'doom-Iosvkem t)
-      (set-face-attribute 'default nil :height 150)))
+      (set-face-attribute 'default nil :height height)))
 
   (defun light ()
     "Load light theme."
     (interactive)
     (let ((height (face-attribute 'default :height)))
       (load-theme 'doom-one-light t)
-      (set-face-attribute 'default nil :height 150))))
+      (set-face-attribute 'default nil :height height))))
 
 
 ;;; GUI settings.
