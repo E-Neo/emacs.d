@@ -57,14 +57,14 @@
          (rust-mode . ws-rust-mode-hook))
   :config
   (defun ws-text-hook ()
+    (whitespace-mode 0)
     (setq whitespace-style '(face tabs trailing))
-    (set-face-attribute 'whitespace-trailing nil :foreground "#FFF")
-    (whitespace-mode t))
+    (whitespace-mode 1))
   (defun ws-prog-mode-hook ()
     (whitespace-mode 0)
     (setq whitespace-style '(face tabs lines-tail trailing))
-    (set-face-attribute 'whitespace-line nil :background "#FFF")
-    (set-face-attribute 'whitespace-trailing nil :foreground "#FFF")
+    (set-face-attribute 'whitespace-line nil
+                        :background (face-attribute 'default :foreground))
     (whitespace-mode 1))
   (defun ws-go-mode-hook ()
     (whitespace-mode 0)
@@ -152,7 +152,7 @@
 (global-set-key [mouse-4] (lambda () (interactive) (scroll-down 1)))
 (global-set-key [mouse-5] (lambda () (interactive) (scroll-up 1)))
 (setq mouse-wheel-progressive-speed nil)
-(setq mouse-wheel-follow-mouse 't)
+(setq mouse-wheel-follow-mouse t)
 (setq scroll-step 1)
 
 

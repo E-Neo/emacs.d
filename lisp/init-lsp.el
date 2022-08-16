@@ -2,6 +2,7 @@
 ;;; Commentary:
 ;;; Code:
 
+
 ;;; Cypher
 (use-package cypher-mode)
 
@@ -16,6 +17,12 @@
 
 ;;; Go
 (use-package go-mode)
+
+
+;;; HTML
+(use-package rainbow-mode
+  :hook ((css-mode . rainbow-mode)
+         (html-mode . rainbow-mode)))
 
 
 ;;; Lua
