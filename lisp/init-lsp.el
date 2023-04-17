@@ -3,6 +3,11 @@
 ;;; Code:
 
 
+;;; Clojure
+(use-package clojure-mode
+  :config
+  (use-package cider))
+
 ;;; Cypher
 (use-package cypher-mode)
 
@@ -41,6 +46,26 @@
 (use-package tuareg
   :config
   (use-package utop))
+
+
+;;; Proof General
+(use-package proof-general
+  :hook
+  (coq-goals-mode . (lambda ()
+                      (setq prettify-symbols-alist
+                            '(("forall" . ?∀)
+                              ("exists" . ?∃)
+                              ("~" . ?¬)
+                              ("/\\" . ?∧)
+                              ("\\/" . ?∨)
+                              ("=>" . ?⇒)
+                              ("->" . ?→)
+                              ("<-" . ?←)
+                              ("<->" . ?↔)
+                              ("nat" . ?ℕ)
+                              ("*" . ?×)))
+                      (prettify-symbols-mode 1))))
+
 
 ;;; Python
 (use-package lsp-pyright

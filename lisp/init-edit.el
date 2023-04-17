@@ -6,6 +6,7 @@
  indent-tabs-mode nil
  dired-dwim-target t
  column-number-mode t
+ confirm-kill-emacs 'yes-or-no-p
  make-backup-files nil
  mouse-yank-at-point t
  scroll-preserve-screen-position 'always
@@ -153,7 +154,7 @@
 (global-set-key [mouse-5] (lambda () (interactive) (scroll-up 1)))
 (setq mouse-wheel-progressive-speed nil)
 (setq mouse-wheel-follow-mouse t)
-(setq scroll-step 1)
+(setq scroll-conservatively 10000)
 
 
 ;;; Font settings.
