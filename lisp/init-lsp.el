@@ -121,6 +121,7 @@
 (use-package lsp-mode
   :hook ((c-mode . lsp-deferred)
          (c++-mode . lsp-deferred)
+         (clojure-mode . lsp-deferred)
          (erlang-mode . lsp-deferred)
          (go-mode . lsp-deferred)
          (lua-mode . lsp-deferred)

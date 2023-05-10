@@ -5,8 +5,9 @@
 (require 'package)
 
 
-(add-to-list 'package-archives
-             '( "melpa" . "http://mirrors.ustc.edu.cn/elpa/melpa/") t)
+(setq package-archives
+      '(("gnu" . "https://mirrors.ustc.edu.cn/elpa/gnu/")
+        ("melpa" . "https://mirrors.ustc.edu.cn/elpa/melpa/")))
 (package-initialize)
 
 
