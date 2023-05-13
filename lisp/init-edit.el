@@ -159,11 +159,8 @@
 
 ;;; Font settings.
 ;; default font
-(when (member "Noto Sans Mono CJK SC" (font-family-list))
-  (set-frame-font "Noto Sans Mono CJK SC" t t))
-;; set font for emoji
-(when (member "Noto Color Emoji" (font-family-list))
-  (set-fontset-font t 'symbol "Noto Color Emoji" nil 'append))
+(when (member "NotoSansMono Nerd Font Mono" (font-family-list))
+  (set-frame-font "NotoSansMono Nerd Font Mono" t t))
 ;; set font size
 (set-face-attribute 'default nil :height 150)
 
