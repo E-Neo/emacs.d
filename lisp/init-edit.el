@@ -104,10 +104,12 @@
              (condition-case nil (imenu-add-menubar-index) (error nil))))
 
 
-(use-package all-the-icons)
-
-
 (use-package windresize)
+
+
+(use-package nerd-icons-dired
+  :hook
+  (dired-mode . nerd-icons-dired-mode))
 
 
 (use-package doom-themes
