@@ -295,6 +295,13 @@
                         ("\\lor" ?∨))))
 
 
+;;; Show file path.
+(defun path ()
+  "Show file path of the current buffer."
+  (interactive)
+  (message buffer-file-name))
+
+
 (provide 'init-edit)
 
 ;;; init-edit.el ends here

@@ -18,6 +18,9 @@
 (setq use-package-always-ensure t)
 
 
+(use-package elpa-mirror)
+
+
 (provide 'init-package)
 
 ;;; init-package.el ends here
