@@ -114,6 +114,10 @@
   (setq-default lsp-rust-server 'rust-analyzer))
 
 
+;;; TypeScript
+(use-package typescript-mode)
+
+
 ;;; Various modes.
 (use-package yaml-mode)
 
@@ -128,6 +132,7 @@
          (python-mode . lsp-deferred)
          (rust-mode . lsp-deferred)
          (tuareg-mode . lsp-deferred)
+         (typescript-mode . lsp-deferred)
          (before-save . lsp-format-buffer)
          (before-save . lsp-organize-imports))
   :init
