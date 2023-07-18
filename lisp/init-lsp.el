@@ -3,6 +3,13 @@
 ;;; Code:
 
 
+(use-package tree-sitter
+  :config
+  (use-package tree-sitter-langs)
+  (global-tree-sitter-mode)
+  (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode))
+
+
 ;;; Clojure
 (use-package clojure-mode
   :config
@@ -132,6 +139,7 @@
          (python-mode . lsp-deferred)
          (rust-mode . lsp-deferred)
          (tuareg-mode . lsp-deferred)
+         (js-mode . lsp-deferred)
          (typescript-mode . lsp-deferred)
          (before-save . lsp-format-buffer)
          (before-save . lsp-organize-imports))

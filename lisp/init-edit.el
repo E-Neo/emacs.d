@@ -14,6 +14,10 @@
  auto-revert-verbose nil)
 
 
+(add-to-list 'auto-mode-alist '("\\.m\\'" . mercury-mode))
+(add-to-list 'auto-mode-alist '("\\.pl\\'" . prolog-mode))
+
+
 (prefer-coding-system 'utf-8-unix)
 
 
@@ -250,6 +254,10 @@
   :config
   (declare-function yas-reload-all "yasnippet.el")
   (yas-reload-all))
+
+
+;;; LaTeX fragments.
+(use-package texfrag)
 
 
 ;;; Settings about auto complete.
