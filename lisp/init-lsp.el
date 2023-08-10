@@ -129,39 +129,24 @@
 (use-package yaml-mode)
 
 
-(use-package lsp-mode
-  :hook ((c-mode . lsp-deferred)
-         (c++-mode . lsp-deferred)
-         (clojure-mode . lsp-deferred)
-         (erlang-mode . lsp-deferred)
-         (go-mode . lsp-deferred)
-         (lua-mode . lsp-deferred)
-         (python-mode . lsp-deferred)
-         (rust-mode . lsp-deferred)
-         (tuareg-mode . lsp-deferred)
-         (js-mode . lsp-deferred)
-         (typescript-mode . lsp-deferred)
-         (before-save . lsp-format-buffer)
-         (before-save . lsp-organize-imports))
-  :init
-  (setq lsp-keymap-prefix "C-c l")
-  :config
-  (define-key lsp-mode-map (kbd "C-c l") lsp-command-map)
-  (setq-default lsp-disabled-clients '((lua-mode . emmy-lua)))
-  (setq lsp-eldoc-enable-hover nil)
-  (setq lsp-signature-render-documentation nil)
-  (use-package lsp-ui
-    :config
-    (setq-default lsp-ui-doc-show-with-cursor t)
-    (setq-default lsp-ui-sideline-enable nil)
-    (define-key lsp-ui-mode-map
-      [remap xref-find-definitions] #'lsp-ui-peek-find-definitions)
-    (define-key lsp-ui-mode-map
-      [remap xref-find-references] #'lsp-ui-peek-find-references))
-  (use-package lsp-ivy)
-  (use-package lsp-treemacs
-    :init
-    (lsp-treemacs-sync-mode 1)))
+(use-package eglot
+  :hook ((c-mode . eglot-ensure)
+         (c++-mode . eglot-ensure)
+         (clojure-mode . eglot-ensure)
+         (erlang-mode . eglot-ensure)
+         (go-mode . eglot-ensure)
+         (lua-mode . eglot-ensure)
+         (python-mode . eglot-ensure)
+         (rust-mode . eglot-ensure)
+         (tuareg-mode . eglot-ensure)
+         (js-mode . eglot-ensure)
+         (typescript-mode . eglot-ensure)
+         (before-save . eglot-format-buffer)
+         (before-save . eglot-code-action-organize-imports))
+  :bind (("C-c l r r" . eglot-rename)
+         ("C-c l r o" . eglot-code-action-organize-imports)
+         ("C-c l = r" . eglot-format)
+         ("C-c l = =" . eglot-format-buffer)))
 
 
 (use-package dap-mode
