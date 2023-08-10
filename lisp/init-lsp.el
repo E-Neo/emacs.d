@@ -75,11 +75,6 @@
 
 
 ;;; Python
-(use-package lsp-pyright
-  :config
-  (use-package py-autopep8
-    :hook (python-mode . py-autopep8-enable-on-save)))
-
 (use-package conda
   :functions try-to-use-ipython
   :config
@@ -117,8 +112,7 @@
 (use-package rust-mode
   :delight "🦀"
   :config
-  (setq-default tab-width 4)
-  (setq-default lsp-rust-server 'rust-analyzer))
+  (setq-default tab-width 4))
 
 
 ;;; TypeScript
@@ -147,11 +141,6 @@
          ("C-c l r o" . eglot-code-action-organize-imports)
          ("C-c l = r" . eglot-format)
          ("C-c l = =" . eglot-format-buffer)))
-
-
-(use-package dap-mode
-  :config
-  (require 'dap-cpptools))
 
 
 (provide 'init-lsp)
