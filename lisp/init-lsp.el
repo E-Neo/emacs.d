@@ -49,6 +49,10 @@
                 ("g" . grip-mode))))
 
 
+;;; Maxima
+(use-package maxima)
+
+
 ;;; OCaml
 (use-package tuareg
   :config
