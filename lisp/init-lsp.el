@@ -51,6 +51,7 @@
 
 ;;; Maxima
 (use-package maxima
+  :mode ("\\.ma[cx]\\'" . maxima-mode)
   :config
   (use-package company-maxima
     :hook ((maxima-mode . maxima-hook-function)
