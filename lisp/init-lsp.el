@@ -50,7 +50,11 @@
 
 
 ;;; Maxima
-(use-package maxima)
+(use-package maxima
+  :config
+  (use-package company-maxima
+    :hook ((maxima-mode . maxima-hook-function)
+           (maxima-inferior-mode . maxima-hook-function))))
 
 
 ;;; OCaml

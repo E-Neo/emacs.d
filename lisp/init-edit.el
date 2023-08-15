@@ -263,7 +263,7 @@
 ;;; Settings about auto complete.
 (use-package company
   :delight
-  :hook ((emacs-lisp-mode . company-mode))
+  :hook ((after-init . global-company-mode))
   :config
   (setq company-idle-delay 0)
   (setq company-minimum-prefix-length 1)
