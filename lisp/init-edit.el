@@ -265,8 +265,8 @@
   :delight
   :hook ((after-init . global-company-mode))
   :config
-  (setq company-idle-delay 0)
-  (setq company-minimum-prefix-length 1)
+  (setq-default company-idle-delay 0.1)
+  (setq-default company-minimum-prefix-length 2)
   (use-package company-quickhelp
     :config
     (company-quickhelp-mode)))

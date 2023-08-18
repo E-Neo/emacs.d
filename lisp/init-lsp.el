@@ -121,7 +121,8 @@
 (use-package rust-mode
   :delight "🦀"
   :config
-  (setq-default tab-width 4))
+  (setq-default tab-width 4)
+  (setq-default rust-format-on-save t))
 
 
 ;;; TypeScript
@@ -149,7 +150,8 @@
   :bind (("C-c l r r" . eglot-rename)
          ("C-c l r o" . eglot-code-action-organize-imports)
          ("C-c l = r" . eglot-format)
-         ("C-c l = =" . eglot-format-buffer)))
+         ("C-c l = =" . eglot-format-buffer)
+         ("C-c l w r" . eglot-reconnect)))
 
 
 (provide 'init-lsp)
