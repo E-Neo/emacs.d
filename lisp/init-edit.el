@@ -99,7 +99,7 @@
 
 
 ;;; Show line numbers.
-(add-hook 'prog-mode-hook 'linum-mode)
+(add-hook 'prog-mode-hook 'display-line-numbers-mode)
 
 
 ;;; Imenu
