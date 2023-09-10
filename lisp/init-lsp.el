@@ -15,6 +15,7 @@
   :config
   (use-package cider))
 
+
 ;;; Cypher
 (use-package cypher-mode)
 
@@ -29,6 +30,10 @@
 
 ;;; Go
 (use-package go-mode)
+
+
+;;; Guile
+(use-package geiser-guile)
 
 
 ;;; HTML

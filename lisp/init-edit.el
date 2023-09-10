@@ -272,12 +272,6 @@
     (company-quickhelp-mode)))
 
 
-;;; Settings about syntax checking.
-(use-package flycheck
-  :delight
-  :hook (after-init . global-flycheck-mode))
-
-
 ;;; Minibuffer completion.
 (use-package ivy
   :delight
