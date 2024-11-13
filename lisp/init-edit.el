@@ -21,10 +21,7 @@
 (prefer-coding-system 'utf-8-unix)
 
 
-(use-package async
-  :config
-  (async-bytecomp-package-mode 1)
-  (dired-async-mode 1))
+(use-package async)
 
 
 (use-package delight)
@@ -121,18 +118,16 @@
   (setq doom-themes-enable-bold t
         doom-themes-enable-italic t)
   (load-theme 'doom-Iosvkem t)
-  (doom-themes-visual-bell-config)
-  (doom-themes-org-config)
 
   (use-package doom-modeline
-    :init
-    (doom-modeline-mode 1)
+    :hook (after-init . doom-modeline-mode)
+    :config
     (doom-modeline-def-modeline 'myline
       '(bar workspace-name window-number modals matches buffer-info remote-host
             buffer-position word-count parrot selection-info)
       '(objed-state misc-info persp-name battery grip irc mu4e gnus github debug
                     repl lsp minor-modes input-method indent-info
-                    buffer-encoding major-mode process vcs checker hud))
+                    buffer-encoding major-mode process vcs check hud))
     (defun setup-custom-modeline ()
       (doom-modeline-set-modeline 'myline 'default))
     (add-hook 'doom-modeline-mode-hook 'setup-custom-modeline)

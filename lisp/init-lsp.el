@@ -3,13 +3,6 @@
 ;;; Code:
 
 
-(use-package tree-sitter
-  :config
-  (use-package tree-sitter-langs)
-  (global-tree-sitter-mode)
-  (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode))
-
-
 ;;; Clojure
 (use-package clojure-mode
   :config
@@ -63,6 +56,10 @@
            (maxima-inferior-mode . maxima-hook-function))))
 
 
+;;; Nix
+(use-package nix-mode)
+
+
 ;;; OCaml
 (use-package tuareg
   :config
@@ -86,36 +83,6 @@
                               ("nat" . ?ℕ)
                               ("*" . ?×)))
                       (prettify-symbols-mode 1))))
-
-
-;;; Python
-(use-package conda
-  :functions try-to-use-ipython
-  :config
-  (setq-default
-   conda-anaconda-home (expand-file-name "~/usr/miniconda3/")
-   conda-env-home-directory (expand-file-name "~/usr/miniconda3/"))
-
-  (defun try-to-use-ipython ()
-    "Try to use ipython if installed."
-    (if (executable-find
-         (if (eq system-type 'windows-nt) "ipython.exe" "ipython"))
-        (setq-default python-shell-interpreter "ipython"
-                      python-shell-interpreter-args "-i --simple-prompt")
-      (setq-default python-shell-interpreter "python"
-                    python-shell-interpreter-args "-i")))
-
-  (defun workon ()
-    "Workon env."
-    (interactive)
-    (conda-env-activate)
-    (try-to-use-ipython))
-
-  (defun deactivate ()
-    "Deactivate env."
-    (interactive)
-    (conda-env-deactivate)
-    (try-to-use-ipython)))
 
 
 ;;; Racket

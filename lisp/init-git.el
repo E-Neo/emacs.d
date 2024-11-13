@@ -5,9 +5,9 @@
 (use-package magit
   :config
   (use-package diff-hl
-    :hook ((magit-post-refresh . diff-hl-magit-post-refresh)
-           (after-init . global-diff-hl-mode)
-           (dired-mode . diff-hl-dired-mode))))
+    :hook ((magit-pre-refresh . diff-hl-magit-pre-refresh)
+           (magit-post-refresh . diff-hl-magit-post-refresh)
+           (after-init . global-diff-hl-mode))))
 
 
 (provide 'init-git)

@@ -18,6 +18,8 @@
 (when (file-exists-p custom-file)
   (load custom-file))
 
+(defun display-startup-echo-area-message ()
+  (message "init-time %s" (emacs-init-time)))
 
 (provide 'init)
 

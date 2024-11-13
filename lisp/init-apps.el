@@ -8,16 +8,8 @@
              '("\\.tar\\.lz4\\'" . "tar -cf - %i | lz4 - > %o"))
 
 
-(use-package emms
-  :config
-  (emms-standard)
-  (emms-default-players))
-
-
-(use-package leetcode
-  :config
-  (setq-default leetcode-prefer-language "cpp"))
-
+(use-package emms)
+(use-package vterm)
 
 (provide 'init-apps)
 
