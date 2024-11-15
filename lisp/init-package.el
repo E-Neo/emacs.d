@@ -4,7 +4,7 @@
 
 (require 'package)
 
-
+;; (setq package-check-signature nil)
 (setq package-archives
       '(("gnu" . "https://mirrors.ustc.edu.cn/elpa/gnu/")
         ("melpa" . "https://mirrors.ustc.edu.cn/elpa/melpa/")))

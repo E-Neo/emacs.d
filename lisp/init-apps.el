@@ -9,7 +9,7 @@
 
 
 (use-package emms)
-(use-package vterm)
+
 
 (provide 'init-apps)
 

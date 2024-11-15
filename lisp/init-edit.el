@@ -231,6 +231,12 @@
   :hook (after-init . global-whitespace-cleanup-mode))
 
 
+;;; Tree-sitter
+(use-package treesit-auto
+  :config
+  (global-treesit-auto-mode))
+
+
 ;;; Spell checking.
 (use-package flyspell
   :delight
