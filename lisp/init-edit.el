@@ -110,6 +110,7 @@
 
 (use-package nerd-icons-dired
   :hook
+  ;; Need "Symbols Nerd Font"
   (dired-mode . nerd-icons-dired-mode))
 
 
@@ -160,8 +161,8 @@
 
 ;;; Font settings.
 ;; default font
-(when (member "NotoSansMono Nerd Font Mono" (font-family-list))
-  (set-frame-font "NotoSansMono Nerd Font Mono" t t))
+(when (member "Hack Nerd Font Mono" (font-family-list))
+  (set-frame-font "Hack Nerd Font Mono" t t))
 ;; set font size
 (set-face-attribute 'default nil :height 150)
 
