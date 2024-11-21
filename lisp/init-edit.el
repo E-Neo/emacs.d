@@ -118,17 +118,21 @@
   :config
   (setq doom-themes-enable-bold t
         doom-themes-enable-italic t)
-  (load-theme 'doom-Iosvkem t)
 
   (use-package doom-modeline
-    :hook (after-init . doom-modeline-mode)
+    :hook
+    (after-init . doom-modeline-mode)
+    (after-init . display-time-mode)
+    :init
+    (setq display-time-24hr-format t)
+    (setq display-time-default-load-average nil)
     :config
     (doom-modeline-def-modeline 'myline
       '(bar workspace-name window-number modals matches buffer-info remote-host
             buffer-position word-count parrot selection-info)
       '(objed-state misc-info persp-name battery grip irc mu4e gnus github debug
                     repl lsp minor-modes input-method indent-info
-                    buffer-encoding major-mode process vcs check hud))
+                    buffer-encoding major-mode process vcs check time hud))
     (defun setup-custom-modeline ()
       (doom-modeline-set-modeline 'myline 'default))
     (add-hook 'doom-modeline-mode-hook 'setup-custom-modeline)
@@ -146,7 +150,9 @@
     (interactive)
     (let ((height (face-attribute 'default :height)))
       (load-theme 'doom-one-light t)
-      (set-face-attribute 'default nil :height height))))
+      (set-face-attribute 'default nil :height height)))
+
+  (dark))
 
 
 ;;; GUI settings.
