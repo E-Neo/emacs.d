@@ -92,7 +92,12 @@
 ;;; Rust
 (use-package rust-mode
   :delight "🦀"
+  :hook
+  (rust-mode . my-line-column-120)
+  (rust-ts-mode . my-line-column-120)
   :config
+  (defun my-line-column-120 ()
+    (setq-local whitespace-line-column 120))
   (setq-default tab-width 4)
   (setq-default rust-format-on-save t))
 

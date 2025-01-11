@@ -9,6 +9,7 @@
  confirm-kill-emacs 'yes-or-no-p
  make-backup-files nil
  mouse-yank-at-point t
+ ring-bell-function 'ignore
  scroll-preserve-screen-position 'always
  global-auto-revert-non-file-buffers t
  auto-revert-verbose nil)
@@ -211,7 +212,7 @@
 
 ;;; Prettify symbols.
 (add-hook 'after-init-hook 'global-prettify-symbols-mode)
-
+(add-hook 'compilation-filter-hook 'ansi-color-compilation-filter)
 
 ;;; Settings about parenthesis.
 (add-hook 'after-init-hook 'electric-pair-mode)
@@ -303,6 +304,14 @@
     (quail-define-rules ((append . t))
                         ("\\land" ?∧)
                         ("\\lor" ?∨))))
+
+
+;;; Kill other buffers
+(defun kill-other-buffers ()
+  "Kill all other buffers."
+  (interactive)
+  (mapc 'kill-buffer-if-not-modified
+        (delq (current-buffer) (buffer-list))))
 
 
 ;;; Show file path.
