@@ -153,7 +153,7 @@
       (load-theme 'doom-one-light t)
       (set-face-attribute 'default nil :height height)))
 
-  (dark))
+  (light))
 
 
 ;;; GUI settings.

@@ -12,6 +12,7 @@
 (require 'init-git)
 (require 'init-apps)
 (require 'init-lsp)
+(require 'init-ai)
 
 ;;; Change custom file.
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))

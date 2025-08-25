@@ -5,69 +5,86 @@
 
 ;;; Clojure
 (use-package clojure-mode
+  :defer t
   :config
-  (use-package cider))
+  (use-package cider
+    :defer t))
 
 
 ;;; Cypher
-(use-package cypher-mode)
+(use-package cypher-mode
+  :defer t)
 
 
 ;;; Dockerfile
-(use-package dockerfile-mode)
+(use-package dockerfile-mode
+  :defer t)
 
 
 ;;; Erlang
-(use-package erlang)
+(use-package erlang
+  :defer t)
 
 
 ;;; Go
-(use-package go-mode)
+(use-package go-mode
+  :defer t)
 
 
 ;;; Guile
-(use-package geiser-guile)
+(use-package geiser-guile
+  :defer t)
 
 
 ;;; HTML
 (use-package rainbow-mode
+  :defer t
   :hook ((css-mode . rainbow-mode)
          (html-mode . rainbow-mode)))
 
 
 ;;; Lua
-(use-package lua-mode)
+(use-package lua-mode
+  :defer t)
 
 
 ;;; Markdown
 (use-package markdown-mode
+  :defer t
   :config
   (use-package grip-mode
+    :defer t
     :bind (:map markdown-mode-command-map
                 ("g" . grip-mode))))
 
 
 ;;; Maxima
 (use-package maxima
+  :defer t
   :mode ("\\.ma[cx]\\'" . maxima-mode)
   :config
   (use-package company-maxima
+    :defer t
     :hook ((maxima-mode . maxima-hook-function)
            (maxima-inferior-mode . maxima-hook-function))))
 
 
 ;;; Nix
-(use-package nix-mode)
+(use-package nix-mode
+  :defer t)
 
 
 ;;; OCaml
 (use-package tuareg
+  :defer t
   :config
-  (use-package utop))
+  (use-package utop
+    :defer t))
 
 
 ;;; Proof General
 (use-package proof-general
+  :defer t
   :hook
   (coq-goals-mode . (lambda ()
                       (setq prettify-symbols-alist
@@ -86,11 +103,13 @@
 
 
 ;;; Racket
-(use-package racket-mode)
+(use-package racket-mode
+  :defer t)
 
 
 ;;; Rust
 (use-package rust-mode
+  :defer t
   :delight "🦀"
   :hook
   (rust-mode . my-line-column-120)
@@ -103,14 +122,17 @@
 
 
 ;;; TypeScript
-(use-package typescript-mode)
+(use-package typescript-mode
+  :defer t)
 
 
 ;;; Various modes.
-(use-package yaml-mode)
+(use-package yaml-mode
+  :defer t)
 
 
 (use-package eglot
+  :defer t
   :hook ((c-mode . eglot-ensure)
          (c-ts-mode . eglot-ensure)
          (c++-mode . eglot-ensure)
@@ -130,7 +152,8 @@
          (typescript-mode . eglot-ensure)
          (typescript-ts-mode . eglot-ensure)
          (before-save . my-eglot-before-save))
-  :bind (("C-c l r r" . eglot-rename)
+  :bind (("C-c l a a" . eglot-code-actions)
+         ("C-c l r r" . eglot-rename)
          ("C-c l r o" . eglot-code-action-organize-imports)
          ("C-c l = r" . eglot-format)
          ("C-c l = =" . eglot-format-buffer)

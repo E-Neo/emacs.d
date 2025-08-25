@@ -8,7 +8,8 @@
              '("\\.tar\\.lz4\\'" . "tar -cf - %i | lz4 - > %o"))
 
 
-(use-package emms)
+(use-package emms
+  :defer t)
 
 
 (provide 'init-apps)

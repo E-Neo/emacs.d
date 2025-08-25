@@ -39,7 +39,8 @@
  'org-babel-load-languages '((python . t)))
 
 
-(use-package org-ref)
+(use-package org-ref
+  :defer t)
 
 
 (provide 'init-org)
