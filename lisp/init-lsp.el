@@ -102,6 +102,18 @@
                       (prettify-symbols-mode 1))))
 
 
+;;; Python
+(defun try-to-use-ipython ()
+  "Try to use ipython if installed."
+  (if (executable-find
+       (if (eq system-type 'windows-nt) "ipython.exe" "ipython"))
+      (setq-default python-shell-interpreter "ipython"
+                    python-shell-interpreter-args "-i --simple-prompt")
+    (setq-default python-shell-interpreter "python"
+                  python-shell-interpreter-args "-i")))
+
+(try-to-use-ipython)
+
 ;;; Racket
 (use-package racket-mode
   :defer t)
@@ -117,8 +129,7 @@
   :config
   (defun my-line-column-120 ()
     (setq-local whitespace-line-column 120))
-  (setq-default tab-width 4)
-  (setq-default rust-format-on-save t))
+  (setq-default tab-width 4))
 
 
 ;;; TypeScript
@@ -128,6 +139,11 @@
 
 ;;; Various modes.
 (use-package yaml-mode
+  :defer t)
+
+
+;;; Zig
+(use-package zig-mode
   :defer t)
 
 
@@ -151,6 +167,7 @@
          (js-ts-mode . eglot-ensure)
          (typescript-mode . eglot-ensure)
          (typescript-ts-mode . eglot-ensure)
+         (zig-mode . eglot-ensure)
          (before-save . my-eglot-before-save))
   :bind (("C-c l a a" . eglot-code-actions)
          ("C-c l r r" . eglot-rename)
