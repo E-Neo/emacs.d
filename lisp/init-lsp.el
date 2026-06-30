@@ -137,6 +137,15 @@
   :defer t)
 
 
+;;; Typst
+(use-package typst-ts-mode
+  :defer t
+  :vc (:url "https://codeberg.org/meow_king/typst-ts-mode.git")
+  :config
+  (with-eval-after-load 'eglot
+    (add-to-list 'eglot-server-programs '(typst-ts-mode . ("tinymist")))))
+
+
 ;;; Various modes.
 (use-package yaml-mode
   :defer t)
@@ -157,16 +166,17 @@
          (erlang-mode . eglot-ensure)
          (go-mode . eglot-ensure)
          (go-ts-mode . eglot-ensure)
+         (js-mode . eglot-ensure)
+         (js-ts-mode . eglot-ensure)
          (lua-mode . eglot-ensure)
          (python-mode . eglot-ensure)
          (python-ts-mode . eglot-ensure)
          (rust-mode . eglot-ensure)
          (rust-ts-mode . eglot-ensure)
          (tuareg-mode . eglot-ensure)
-         (js-mode . eglot-ensure)
-         (js-ts-mode . eglot-ensure)
          (typescript-mode . eglot-ensure)
          (typescript-ts-mode . eglot-ensure)
+         (typst-ts-mode . eglot-ensure)
          (zig-mode . eglot-ensure)
          (before-save . my-eglot-before-save))
   :bind (("C-c l a a" . eglot-code-actions)

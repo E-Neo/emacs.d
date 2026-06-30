@@ -51,6 +51,12 @@
   (setq-default highlight-indent-guides-method 'column))
 
 
+;;; Chinese input method
+(use-package pyim
+  :config
+  (setq-default default-input-method "pyim"))
+
+
 ;;; Whitespace
 (use-package whitespace
   :delight
@@ -157,8 +163,9 @@
 
 
 ;;; GUI settings.
-(tool-bar-mode -1)
-(scroll-bar-mode -1)
+(when (display-graphic-p)
+  (tool-bar-mode -1)
+  (scroll-bar-mode -1))
 (global-set-key [mouse-4] (lambda () (interactive) (scroll-down 1)))
 (global-set-key [mouse-5] (lambda () (interactive) (scroll-up 1)))
 (setq mouse-wheel-progressive-speed nil)
